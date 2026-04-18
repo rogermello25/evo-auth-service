@@ -25,14 +25,8 @@ const KnowledgeBasesSection = ({
 
     try {
       setIsLoading(true);
-      // Get all knowledge bases and filter by agent_id
-      const response = await knowledgeService.listKnowledgeBases(1, 100);
-      const allKnowledgeBases = response.data || [];
-
-      // Filter knowledge bases that are linked to this agent
-      const linked = allKnowledgeBases.filter(
-        (kb: KnowledgeBase) => kb.agent_ids?.includes(agentId)
-      );
+      // Get knowledge bases linked to this agent using the dedicated API
+      const linked = await knowledgeService.getAgentKnowledgeBases(agentId);
 
       setLinkedKnowledgeBases(linked);
     } catch (error) {

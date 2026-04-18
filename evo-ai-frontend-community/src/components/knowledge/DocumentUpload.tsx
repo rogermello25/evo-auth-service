@@ -20,12 +20,6 @@ interface DocumentUploadProps {
   onUpload: (file: File, onProgress: (progress: number) => void) => Promise<void>;
 }
 
-const ALLOWED_FILE_TYPES = [
-  'text/plain',
-  'application/pdf',
-  'application/vnd.openxmlformats-officedocument.wordprocessingml.document',
-];
-
 const ALLOWED_EXTENSIONS = ['.txt', '.pdf', '.docx'];
 
 export default function DocumentUpload({

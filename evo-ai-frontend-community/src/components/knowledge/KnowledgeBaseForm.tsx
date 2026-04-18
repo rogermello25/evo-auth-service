@@ -12,7 +12,6 @@ import {
   Label as UILabel,
   Textarea,
 } from '@evoapi/design-system';
-import { Upload, FileText } from 'lucide-react';
 import { KnowledgeBase, CreateKnowledgeBaseRequest, UpdateKnowledgeBaseRequest } from '@/types/knowledge/knowledge';
 import { useUserPermissions } from '@/hooks/useUserPermissions';
 
@@ -39,9 +38,7 @@ export default function KnowledgeBaseForm({
     name: '',
     description: '',
     content: '',
-    tags: [],
   });
-  const [tagInput, setTagInput] = useState('');
   const [errors, setErrors] = useState<Record<string, string>>({});
 
   useEffect(() => {
@@ -51,17 +48,14 @@ export default function KnowledgeBaseForm({
           name: knowledgeBase.name,
           description: knowledgeBase.description || '',
           content: knowledgeBase.content || '',
-          tags: knowledgeBase.tags || [],
         });
       } else {
         setFormData({
           name: '',
           description: '',
           content: '',
-          tags: [],
         });
       }
-      setTagInput('');
       setErrors({});
     }
   }, [open, knowledgeBase, isNew]);
@@ -99,30 +93,6 @@ export default function KnowledgeBaseForm({
     setFormData(prev => ({ ...prev, [field]: value }));
     if (errors[field]) {
       setErrors(prev => ({ ...prev, [field]: '' }));
-    }
-  };
-
-  const handleAddTag = () => {
-    if (tagInput.trim() && !formData.tags?.includes(tagInput.trim())) {
-      setFormData(prev => ({
-        ...prev,
-        tags: [...(prev.tags || []), tagInput.trim()],
-      }));
-      setTagInput('');
-    }
-  };
-
-  const handleRemoveTag = (tagToRemove: string) => {
-    setFormData(prev => ({
-      ...prev,
-      tags: (prev.tags || []).filter(tag => tag !== tagToRemove),
-    }));
-  };
-
-  const handleTagInputKeyDown = (e: React.KeyboardEvent) => {
-    if (e.key === 'Enter') {
-      e.preventDefault();
-      handleAddTag();
     }
   };
 
@@ -185,41 +155,6 @@ export default function KnowledgeBaseForm({
             </p>
           </div>
 
-          {/* Tags */}
-          <div className="space-y-2">
-            <UILabel htmlFor="tags">{t('modal.labels.tags')}</UILabel>
-            <div className="flex items-center gap-2">
-              <Input
-                id="tags"
-                value={tagInput}
-                onChange={(e) => setTagInput(e.target.value)}
-                onKeyDown={handleTagInputKeyDown}
-                placeholder={t('modal.placeholders.tags')}
-              />
-              <Button type="button" variant="outline" size="sm" onClick={handleAddTag}>
-                {t('modal.buttons.addTag')}
-              </Button>
-            </div>
-            {formData.tags && formData.tags.length > 0 && (
-              <div className="flex flex-wrap gap-1 mt-2">
-                {formData.tags.map((tag, index) => (
-                  <span
-                    key={index}
-                    className="inline-flex items-center gap-1 px-2 py-1 bg-secondary text-secondary-foreground rounded text-xs"
-                  >
-                    {tag}
-                    <button
-                      type="button"
-                      onClick={() => handleRemoveTag(tag)}
-                      className="hover:text-destructive"
-                    >
-                      &times;
-                    </button>
-                  </span>
-                ))}
-              </div>
-            )}
-          </div>
         </form>
 
         <DialogFooter>
