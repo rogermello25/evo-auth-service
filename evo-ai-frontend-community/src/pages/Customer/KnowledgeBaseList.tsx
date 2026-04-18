@@ -10,19 +10,15 @@ import {
   DialogTitle,
   Button,
 } from '@evoapi/design-system';
-import { BookOpen, Search, Upload, Link2, MoreHorizontal, Pencil, Trash2, Eye } from 'lucide-react';
+import { BookOpen, Search, Upload, Link2, MoreHorizontal, Pencil, Trash2 } from 'lucide-react';
 import EmptyState from '@/components/base/EmptyState';
 import { useUserPermissions } from '@/hooks/useUserPermissions';
 import {
   listKnowledgeBases,
-  getKnowledgeBase,
   createKnowledgeBase,
   updateKnowledgeBase,
   deleteKnowledgeBase,
   uploadDocument,
-  linkToAgent,
-  unlinkFromAgent,
-  getAgentKnowledgeBases,
   getKnowledgeBaseAgents,
 } from '@/services/knowledge/knowledgeService';
 import { KnowledgeBase, KnowledgeBaseState, CreateKnowledgeBaseRequest, UpdateKnowledgeBaseRequest, AgentKnowledgeBaseLink } from '@/types/knowledge/knowledge';
@@ -36,7 +32,6 @@ import {
   DropdownMenuSeparator,
   DropdownMenuTrigger,
 } from '@evoapi/design-system';
-import { Badge } from '@evoapi/design-system';
 
 const INITIAL_STATE: KnowledgeBaseState = {
   knowledgeBases: [],
@@ -140,20 +135,6 @@ export default function KnowledgeBaseList() {
       ...prev,
       searchQuery: query,
       meta: { ...prev.meta, pagination: { ...prev.meta.pagination, page: 1 } },
-    }));
-  };
-
-  const handlePageChange = (page: number) => {
-    setState(prev => ({
-      ...prev,
-      meta: { ...prev.meta, pagination: { ...prev.meta.pagination, page } },
-    }));
-  };
-
-  const handlePerPageChange = (perPage: number) => {
-    setState(prev => ({
-      ...prev,
-      meta: { ...prev.meta, pagination: { ...prev.meta.pagination, page_size: perPage, page: 1 } },
     }));
   };
 
@@ -388,17 +369,6 @@ export default function KnowledgeBaseList() {
                     </DropdownMenuContent>
                   </DropdownMenu>
                 </div>
-
-                {/* Tags */}
-                {kb.tags && kb.tags.length > 0 && (
-                  <div className="flex flex-wrap gap-1 mt-3">
-                    {kb.tags.map((tag: string, index: number) => (
-                      <Badge key={index} variant="secondary" className="text-xs">
-                        {tag}
-                      </Badge>
-                    ))}
-                  </div>
-                )}
 
                 {/* Footer info */}
                 <div className="flex items-center justify-between mt-4 pt-3 border-t text-xs text-muted-foreground">
