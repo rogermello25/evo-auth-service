@@ -1,11 +1,8 @@
-import api from '@/services/core/api';
+import apiEvolution from '@/services/core/apiEvolution';
 import {
   KnowledgeBase,
   CreateKnowledgeBaseRequest,
   UpdateKnowledgeBaseRequest,
-  KnowledgeSearchResponse,
-  DocumentUploadResponse,
-  KnowledgeBaseResponse,
 } from '@/types/knowledge/knowledge';
 
 class KnowledgeService {
@@ -13,7 +10,7 @@ class KnowledgeService {
    * List all knowledge bases
    */
   async listKnowledgeBases(): Promise<KnowledgeBase[]> {
-    const response = await api.get('/knowledge-base');
+    const response = await apiEvolution.get('/knowledge-base');
     return response.data;
   }
 
@@ -21,7 +18,7 @@ class KnowledgeService {
    * Get a single knowledge base by ID
    */
   async getKnowledgeBase(knowledgeId: string): Promise<KnowledgeBase> {
-    const response = await api.get(`/knowledge-base/${knowledgeId}`);
+    const response = await apiEvolution.get(`/knowledge-base/${knowledgeId}`);
     return response.data;
   }
 
@@ -29,7 +26,7 @@ class KnowledgeService {
    * Create a new knowledge base
    */
   async createKnowledgeBase(data: CreateKnowledgeBaseRequest): Promise<KnowledgeBase> {
-    const response = await api.post('/knowledge-base', data);
+    const response = await apiEvolution.post('/knowledge-base', data);
     return response.data;
   }
 
@@ -37,7 +34,7 @@ class KnowledgeService {
    * Update an existing knowledge base
    */
   async updateKnowledgeBase(knowledgeId: string, data: UpdateKnowledgeBaseRequest): Promise<KnowledgeBase> {
-    const response = await api.put(`/knowledge-base/${knowledgeId}`, data);
+    const response = await apiEvolution.put(`/knowledge-base/${knowledgeId}`, data);
     return response.data;
   }
 
@@ -45,7 +42,7 @@ class KnowledgeService {
    * Delete a knowledge base
    */
   async deleteKnowledgeBase(knowledgeId: string): Promise<void> {
-    await api.delete(`/knowledge-base/${knowledgeId}`);
+    await apiEvolution.delete(`/knowledge-base/${knowledgeId}`);
   }
 
   /**
@@ -55,7 +52,7 @@ class KnowledgeService {
     const formData = new FormData();
     formData.append('file', file);
 
-    const response = await api.post('/knowledge-base/upload', formData, {
+    const response = await apiEvolution.post('/knowledge-base/upload', formData, {
       headers: {
         'Content-Type': 'multipart/form-data',
       },
@@ -74,7 +71,7 @@ class KnowledgeService {
    * Search knowledge bases
    */
   async searchKnowledge(query: string, limit: number = 10): Promise<KnowledgeBase[]> {
-    const response = await api.post('/knowledge-base/search', { query, limit });
+    const response = await apiEvolution.post('/knowledge-base/search', { query, limit });
     return response.data;
   }
 
@@ -82,7 +79,7 @@ class KnowledgeService {
    * Get knowledge bases linked to an agent
    */
   async getAgentKnowledgeBases(agentId: string): Promise<KnowledgeBase[]> {
-    const response = await api.get(`/agent/${agentId}/knowledge-bases`);
+    const response = await apiEvolution.get(`/agent/${agentId}/knowledge-bases`);
     return response.data;
   }
 
@@ -90,21 +87,21 @@ class KnowledgeService {
    * Link a knowledge base to an agent
    */
   async linkToAgent(agentId: string, knowledgeBaseId: string): Promise<void> {
-    await api.post(`/agent/${agentId}/knowledge-bases`, { knowledgeBaseId });
+    await apiEvolution.post(`/agent/${agentId}/knowledge-bases`, { knowledgeBaseId });
   }
 
   /**
    * Unlink a knowledge base from an agent
    */
   async unlinkFromAgent(agentId: string, knowledgeBaseId: string): Promise<void> {
-    await api.delete(`/agent/${agentId}/knowledge-bases/${knowledgeBaseId}`);
+    await apiEvolution.delete(`/agent/${agentId}/knowledge-bases/${knowledgeBaseId}`);
   }
 
   /**
    * Get agents linked to a knowledge base
    */
   async getKnowledgeBaseAgents(knowledgeBaseId: string): Promise<{ agentId: string }[]> {
-    const response = await api.get(`/knowledge-base/${knowledgeBaseId}/agents`);
+    const response = await apiEvolution.get(`/knowledge-base/${knowledgeBaseId}/agents`);
     return response.data;
   }
 }

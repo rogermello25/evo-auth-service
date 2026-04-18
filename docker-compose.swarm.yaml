@@ -373,6 +373,51 @@ services:
       VITE_EVOAI_API_URL: https://${API_DOMAIN}
       VITE_AGENT_PROCESSOR_URL: https://${API_DOMAIN}
       VITE_WS_URL: https://${API_DOMAIN}
+      VITE_EVOLUTION_API_URL: https://${API_DOMAIN}
+
+  # ---------------------------------------------------------------------------
+  # Evolution API (Node.js / TypeScript) — Port 8080
+  # ---------------------------------------------------------------------------
+  evocrm_evolution_api:
+    image: ghcr.io/rogermello25/evocrm/evo-evolution-api:latest
+    command: sh -c ". ./Docker/scripts/deploy_database.sh && npm run start:prod"
+    environment:
+      SERVER_NAME: evolution
+      SERVER_TYPE: http
+      SERVER_PORT: 8080
+      DATABASE_PROVIDER: postgresql
+      DATABASE_CONNECTION_URI: ${PROCESSOR_POSTGRES_CONNECTION_STRING}
+      POSTGRES_DATABASE: evocrm
+      POSTGRES_USERNAME: ${POSTGRES_USERNAME}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
+      CORS_ORIGIN: '*'
+      DEL_INSTANCE: false
+      DATABASE_SAVE_DATA_INSTANCE: true
+      DATABASE_SAVE_DATA_NEW_MESSAGE: true
+      DATABASE_SAVE_MESSAGE_UPDATE: true
+      DATABASE_SAVE_DATA_CONTACTS: true
+      DATABASE_SAVE_DATA_CHATS: true
+      DATABASE_SAVE_DATA_LABELS: true
+      DATABASE_SAVE_DATA_HISTORIC: true
+      DATABASE_SAVE_IS_ON_WHATSAPP: true
+      DATABASE_DELETE_MESSAGE: true
+      LOG_LEVEL: ERROR,WARN,INFO
+    healthcheck:
+      test: ["CMD-SHELL", "wget -qO- http://localhost:8080 >/dev/null || exit 1"]
+      interval: 15s
+      timeout: 5s
+      retries: 5
+      start_period: 60s
+    networks:
+      - network_public
+      - roihnet
+    deploy:
+      replicas: 1
+      placement:
+        constraints:
+          - node.hostname == roih-vps
+      restart_policy:
+        condition: any
     networks:
       - network_public
     deploy:

@@ -269,6 +269,7 @@ services:
         VITE_AUTH_API_URL: ${VITE_AUTH_API_URL:-http://localhost:3001}
         VITE_EVOAI_API_URL: ${VITE_EVOAI_API_URL:-http://localhost:5555}
         VITE_AGENT_PROCESSOR_URL: ${VITE_AGENT_PROCESSOR_URL:-http://localhost:8000}
+        VITE_EVOLUTION_API_URL: ${VITE_EVOLUTION_API_URL:-http://localhost:8081}
     restart: unless-stopped
     environment:
       VITE_API_URL: ${VITE_API_URL:-http://localhost:3000}
@@ -276,6 +277,7 @@ services:
       VITE_WS_URL: ${VITE_WS_URL:-http://localhost:3000}
       VITE_EVOAI_API_URL: ${VITE_EVOAI_API_URL:-http://localhost:5555}
       VITE_AGENT_PROCESSOR_URL: ${VITE_AGENT_PROCESSOR_URL:-http://localhost:8000}
+      VITE_EVOLUTION_API_URL: ${VITE_EVOLUTION_API_URL:-http://evolution-api:8080}
     ports:
       - "5173:80"
     depends_on:
@@ -289,6 +291,48 @@ services:
       timeout: 5s
       retries: 3
       start_period: 15s
+
+  # ---------------------------------------------------------------------------
+  # Evolution API (Node.js / TypeScript) — Port 8080
+  # ---------------------------------------------------------------------------
+  evolution-api:
+    build:
+      context: ./evolution-api
+      dockerfile: Dockerfile
+    restart: unless-stopped
+    ports:
+      - "8081:8080"
+    env_file: .env
+    environment:
+      SERVER_NAME: evolution
+      SERVER_TYPE: http
+      SERVER_PORT: 8080
+      DATABASE_PROVIDER: postgresql
+      DATABASE_CONNECTION_URI: postgresql://${POSTGRES_USERNAME:-postgres}:${POSTGRES_PASSWORD:-evoai_dev_password}@postgres:5432/evocrm?schema=evolution_api
+      POSTGRES_DATABASE: evocrm
+      POSTGRES_USERNAME: ${POSTGRES_USERNAME:-postgres}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:-evoai_dev_password}
+      CORS_ORIGIN: '*'
+      DEL_INSTANCE: false
+      DATABASE_SAVE_DATA_INSTANCE: true
+      DATABASE_SAVE_DATA_NEW_MESSAGE: true
+      DATABASE_SAVE_MESSAGE_UPDATE: true
+      DATABASE_SAVE_DATA_CONTACTS: true
+      DATABASE_SAVE_DATA_CHATS: true
+      DATABASE_SAVE_DATA_LABELS: true
+      DATABASE_SAVE_DATA_HISTORIC: true
+      DATABASE_SAVE_IS_ON_WHATSAPP: true
+      DATABASE_DELETE_MESSAGE: true
+      LOG_LEVEL: ERROR,WARN,INFO
+    depends_on:
+      postgres:
+        condition: service_healthy
+    healthcheck:
+      test: ["CMD", "wget", "--no-verbose", "--tries=1", "--spider", "http://localhost:8080"]
+      interval: 15s
+      timeout: 5s
+      retries: 5
+      start_period: 60s
 
 volumes:
   postgres_data:
