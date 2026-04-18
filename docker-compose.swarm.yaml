@@ -4,7 +4,7 @@ version: "3.8"
 # Evo CRM Community — Docker Swarm Stack
 # =============================================================================
 # Deploy:
-#   docker stack deploy -c docker-compose.swarm.yaml evo_crm
+#   docker stack deploy -c docker-compose.swarm.yaml evocrm
 #
 # Prerequisites:
 #   - Docker Swarm initialized (docker swarm init)
@@ -12,8 +12,8 @@ version: "3.8"
 #   - Traefik running on the swarm for TLS termination
 #
 # Only 2 public domains needed:
-#   - FRONTEND_DOMAIN  → evo_frontend  (React app)
-#   - API_DOMAIN       → evo_gateway   (Nginx → all backend services)
+#   - FRONTEND_DOMAIN  → evocrm_frontend  (React app)
+#   - API_DOMAIN       → evocrm_gateway   (Nginx → all backend services)
 #
 # Required environment variables (set via .env file or export):
 #   - API_DOMAIN, FRONTEND_DOMAIN
@@ -28,7 +28,7 @@ services:
   # ---------------------------------------------------------------------------
   # API Gateway (Nginx) — single entrypoint for all backend services
   # ---------------------------------------------------------------------------
-  evo_gateway:
+  evocrm_gateway:
     image: ghcr.io/rogermello25/evocrm/evo-gateway-fixed:latest
     networks:
       - network_public
@@ -42,17 +42,17 @@ services:
       labels:
         - traefik.enable=true
         - traefik.docker.network=network_public
-        - traefik.http.routers.evo_gateway.rule=Host(`${API_DOMAIN}`)
-        - traefik.http.routers.evo_gateway.entrypoints=websecure
-        - traefik.http.routers.evo_gateway.tls.certresolver=letsencryptresolver
-        - traefik.http.routers.evo_gateway.service=evo_gateway
-        - traefik.http.services.evo_gateway.loadbalancer.server.port=3030
-        - traefik.http.services.evo_gateway.loadbalancer.passHostHeader=true
+        - traefik.http.routers.evocrm_gateway.rule=Host(`${API_DOMAIN}`)
+        - traefik.http.routers.evocrm_gateway.entrypoints=websecure
+        - traefik.http.routers.evocrm_gateway.tls.certresolver=letsencryptresolver
+        - traefik.http.routers.evocrm_gateway.service=evocrm_gateway
+        - traefik.http.services.evocrm_gateway.loadbalancer.server.port=3030
+        - traefik.http.services.evocrm_gateway.loadbalancer.passHostHeader=true
 
   # ---------------------------------------------------------------------------
   # Auth Service (Ruby / Rails) — Port 3001
   # ---------------------------------------------------------------------------
-  evo_auth:
+  evocrm_auth:
     image: ghcr.io/rogermello25/evocrm/evo-auth-fixed:latest
     command: bash -c "bundle exec rails db:migrate 2>&1 || echo 'Migration had errors, continuing...'; bundle exec rails s -p 3001 -b 0.0.0.0"
     healthcheck:
@@ -105,7 +105,7 @@ services:
       restart_policy:
         condition: any
 
-  evo_auth_sidekiq:
+  evocrm_auth_sidekiq:
     image: ghcr.io/rogermello25/evocrm/evo-auth-fixed:latest
     command: ["bundle", "exec", "sidekiq", "-C", "config/sidekiq.yml"]
     healthcheck:
@@ -152,7 +152,7 @@ services:
   # ---------------------------------------------------------------------------
   # CRM Service (Ruby / Rails) — Port 3000
   # ---------------------------------------------------------------------------
-  evo_crm:
+  evocrm_crm:
     image: ghcr.io/rogermello25/evocrm/evo-crm-fixed:latest
     command: sh -c "until wget -qO- http://evocrm_auth:3001/health >/dev/null 2>&1; do echo 'Waiting for auth...'; sleep 5; done; bundle exec rails db:migrate 2>&1 || echo 'Migration had errors, continuing...'; bundle exec rails s -p 3000 -b 0.0.0.0"
     environment:
@@ -195,7 +195,7 @@ services:
       restart_policy:
         condition: any
 
-  evo_crm_sidekiq:
+  evocrm_crm_sidekiq:
     image: ghcr.io/rogermello25/evocrm/evo-crm-fixed:latest
     command: ["bundle", "exec", "sidekiq", "-C", "config/sidekiq.yml"]
     environment:
@@ -232,7 +232,7 @@ services:
   # ---------------------------------------------------------------------------
   # Core Service (Go / Gin) — Port 5555
   # ---------------------------------------------------------------------------
-  evo_core:
+  evocrm_core:
     image: ghcr.io/rogermello25/evocrm/evo-core-fixed:latest
     environment:
       DB_HOST: ${POSTGRES_HOST}
@@ -267,7 +267,7 @@ services:
   # ---------------------------------------------------------------------------
   # Processor Service (Python / FastAPI) — Port 8000
   # ---------------------------------------------------------------------------
-  evo_processor:
+  evocrm_processor:
     image: ghcr.io/rogermello25/evocrm/evo-processor-fixed:latest
     command: sh -c "alembic upgrade head 2>&1 || echo 'Alembic migration had errors, continuing...'; python -m scripts.run_seeders; uvicorn src.main:app --host $$HOST --port $$PORT"
     environment:
@@ -311,7 +311,7 @@ services:
   # ---------------------------------------------------------------------------
   # Bot Runtime (Go / Gin) — Port 8080
   # ---------------------------------------------------------------------------
-  evo_bot_runtime:
+  evocrm_bot_runtime:
     image: ghcr.io/rogermello25/evocrm/evo-bot-runtime-fixed:latest
     environment:
       LISTEN_ADDR: 0.0.0.0:8080
@@ -332,7 +332,7 @@ services:
   # ---------------------------------------------------------------------------
   # Frontend (React / Vite / Nginx) — Port 80
   # ---------------------------------------------------------------------------
-  evo_frontend:
+  evocrm_frontend:
     image: ghcr.io/rogermello25/evocrm/evo-frontend-fixed:latest
     environment:
       VITE_APP_ENV: production
@@ -353,12 +353,12 @@ services:
       labels:
         - traefik.enable=true
         - traefik.docker.network=network_public
-        - traefik.http.routers.evo_frontend.rule=Host(`${FRONTEND_DOMAIN}`)
-        - traefik.http.routers.evo_frontend.entrypoints=websecure
-        - traefik.http.routers.evo_frontend.tls.certresolver=letsencryptresolver
-        - traefik.http.routers.evo_frontend.service=evo_frontend
-        - traefik.http.services.evo_frontend.loadbalancer.server.port=80
-        - traefik.http.services.evo_frontend.loadbalancer.passHostHeader=true
+        - traefik.http.routers.evocrm_frontend.rule=Host(`${FRONTEND_DOMAIN}`)
+        - traefik.http.routers.evocrm_frontend.entrypoints=websecure
+        - traefik.http.routers.evocrm_frontend.tls.certresolver=letsencryptresolver
+        - traefik.http.routers.evocrm_frontend.service=evocrm_frontend
+        - traefik.http.services.evocrm_frontend.loadbalancer.server.port=80
+        - traefik.http.services.evocrm_frontend.loadbalancer.passHostHeader=true
 
 networks:
   network_public:
