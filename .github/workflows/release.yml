@@ -4,41 +4,49 @@ on:
   push:
     tags:
       - "v*.*.*"
+  workflow_dispatch:
+    inputs:
+      version:
+        description: "Release version without the leading v"
+        required: false
 
 env:
   REGISTRY: ghcr.io
-  IMAGE_PREFIX: ghcr.io/evolutionapi
+  IMAGE_PREFIX: ghcr.io/rogermello25/evocrm
 
 jobs:
   build-and-push:
     name: Build & Push ${{ matrix.service }}
     runs-on: ubuntu-latest
     permissions:
-      contents: write
+      contents: read
       packages: write
     strategy:
       matrix:
         include:
-          - service: evo-auth-service-community
+          - service: auth
+            image: evo-auth-fixed
             context: ./evo-auth-service-community
             dockerfile: ./evo-auth-service-community/Dockerfile
-          - service: evo-ai-crm-community
+          - service: crm
+            image: evo-crm-fixed
             context: ./evo-ai-crm-community
             dockerfile: ./evo-ai-crm-community/docker/Dockerfile
-          - service: evo-ai-frontend-community
+          - service: frontend
+            image: evo-frontend-fixed
             context: ./evo-ai-frontend-community
             dockerfile: ./evo-ai-frontend-community/Dockerfile
-          - service: evo-ai-processor-community
+          - service: processor
+            image: evo-processor-fixed
             context: ./evo-ai-processor-community
             dockerfile: ./evo-ai-processor-community/Dockerfile
-          - service: evo-ai-core-service-community
+          - service: core
+            image: evo-core-fixed
             context: ./evo-ai-core-service-community
             dockerfile: ./evo-ai-core-service-community/Dockerfile
 
     steps:
       - uses: actions/checkout@v4
-        with:
-          submodules: recursive
 
       - name: Set up Docker Buildx
         uses: docker/setup-buildx-action@v3
@@ -50,9 +58,17 @@ jobs:
           username: ${{ github.actor }}
           password: ${{ secrets.GITHUB_TOKEN }}
 
-      - name: Extract version from tag
+      - name: Resolve version
         id: version
-        run: echo "version=${GITHUB_REF_NAME#v}" >> "$GITHUB_OUTPUT"
+        shell: bash
+        run: |
+          if [[ "${GITHUB_REF_TYPE}" == "tag" ]]; then
+            echo "version=${GITHUB_REF_NAME#v}" >> "$GITHUB_OUTPUT"
+          elif [[ -n "${{ inputs.version }}" ]]; then
+            echo "version=${{ inputs.version }}" >> "$GITHUB_OUTPUT"
+          else
+            echo "version=manual-${GITHUB_RUN_NUMBER}" >> "$GITHUB_OUTPUT"
+          fi
 
       - name: Build and push
         uses: docker/build-push-action@v6
@@ -61,13 +77,14 @@ jobs:
           file: ${{ matrix.dockerfile }}
           push: true
           tags: |
-            ${{ env.IMAGE_PREFIX }}/${{ matrix.service }}:${{ steps.version.outputs.version }}
-            ${{ env.IMAGE_PREFIX }}/${{ matrix.service }}:latest
+            ${{ env.IMAGE_PREFIX }}/${{ matrix.image }}:${{ steps.version.outputs.version }}
+            ${{ env.IMAGE_PREFIX }}/${{ matrix.image }}:latest
           cache-from: type=gha
           cache-to: type=gha,mode=max
 
   create-release:
     name: Create GitHub Release
+    if: github.ref_type == 'tag'
     needs: build-and-push
     runs-on: ubuntu-latest
     permissions:
@@ -84,12 +101,10 @@ jobs:
           body: |
             ## Docker Images
 
-            All images are available on GitHub Container Registry:
-
             ```bash
-            docker pull ghcr.io/evolutionapi/evo-auth-service-community:${{ github.ref_name }}
-            docker pull ghcr.io/evolutionapi/evo-ai-crm-community:${{ github.ref_name }}
-            docker pull ghcr.io/evolutionapi/evo-ai-frontend-community:${{ github.ref_name }}
-            docker pull ghcr.io/evolutionapi/evo-ai-processor-community:${{ github.ref_name }}
-            docker pull ghcr.io/evolutionapi/evo-ai-core-service-community:${{ github.ref_name }}
+            docker pull ghcr.io/rogermello25/evocrm/evo-auth-fixed:${{ github.ref_name }}
+            docker pull ghcr.io/rogermello25/evocrm/evo-crm-fixed:${{ github.ref_name }}
+            docker pull ghcr.io/rogermello25/evocrm/evo-frontend-fixed:${{ github.ref_name }}
+            docker pull ghcr.io/rogermello25/evocrm/evo-processor-fixed:${{ github.ref_name }}
+            docker pull ghcr.io/rogermello25/evocrm/evo-core-fixed:${{ github.ref_name }}
             ```
