@@ -3,7 +3,8 @@ name: Build Evolution API to GHCR
 on:
   workflow_dispatch:
   push:
-    branches: [main]
+    branches:
+      - main
     paths:
       - 'evolution-api/**'
 
@@ -19,19 +20,10 @@ jobs:
     name: Build
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v5
+      - name: Checkout
+        uses: actions/checkout@v5
         with:
           submodules: recursive
-
-      - name: Docker meta
-        id: meta
-        uses: docker/metadata-action@v5
-        with:
-          images: ${{ env.IMAGE_NAME }}
-          tags: |
-            type=ref,event=branch
-            type=sha,prefix={{branch}}-
-            type=raw,value=latest,enable={{is_default_branch}}
 
       - name: Set up QEMU
         uses: docker/setup-qemu-action@v3
@@ -47,16 +39,16 @@ jobs:
           password: ${{ secrets.GHCR_TOKEN }}
 
       - name: Build and push
-        id: docker_build
         uses: docker/build-push-action@v6
         with:
           context: ./evolution-api
           platforms: linux/amd64
           push: true
-          tags: ${{ steps.meta.outputs.tags }}
-          labels: ${{ steps.meta.outputs.labels }}
+          tags: |
+            ${{ env.IMAGE_NAME }}:latest
+            ${{ env.IMAGE_NAME }}:${{ github.sha }}
           cache-from: type=gha
           cache-to: type=gha,mode=max
 
       - name: Image digest
-        run: echo "Built image: ${{ steps.docker_build.outputs.digest }}"
+        run: echo "Built image digest"
