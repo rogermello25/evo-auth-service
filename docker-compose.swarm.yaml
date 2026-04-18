@@ -256,6 +256,7 @@ services:
       AI_PROCESSOR_VERSION: v1
     networks:
       - network_public
+      - roihnet
     deploy:
       replicas: 1
       placement:
@@ -304,6 +305,7 @@ services:
       - evo_processor_logs:/app/logs
     networks:
       - network_public
+      - roihnet
     deploy:
       replicas: 1
       placement:
@@ -404,21 +406,25 @@ services:
       SERVER_TYPE: http
       SERVER_PORT: 8080
       DATABASE_PROVIDER: postgresql
-      DATABASE_CONNECTION_URI: ${PROCESSOR_POSTGRES_CONNECTION_STRING}
+      DATABASE_CONNECTION_URI: ${POSTGRES_CONNECTION_STRING}&schema=evolution_api
       POSTGRES_DATABASE: evocrm
       POSTGRES_USERNAME: ${POSTGRES_USERNAME}
       POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
       CORS_ORIGIN: '*'
-      DEL_INSTANCE: false
-      DATABASE_SAVE_DATA_INSTANCE: true
-      DATABASE_SAVE_DATA_NEW_MESSAGE: true
-      DATABASE_SAVE_MESSAGE_UPDATE: true
-      DATABASE_SAVE_DATA_CONTACTS: true
-      DATABASE_SAVE_DATA_CHATS: true
-      DATABASE_SAVE_DATA_LABELS: true
-      DATABASE_SAVE_DATA_HISTORIC: true
-      DATABASE_SAVE_IS_ON_WHATSAPP: true
-      DATABASE_DELETE_MESSAGE: true
+      DEL_INSTANCE: "false"
+      DATABASE_SAVE_DATA_INSTANCE: "true"
+      DATABASE_SAVE_DATA_NEW_MESSAGE: "true"
+      DATABASE_SAVE_MESSAGE_UPDATE: "true"
+      DATABASE_SAVE_DATA_CONTACTS: "true"
+      DATABASE_SAVE_DATA_CHATS: "true"
+      DATABASE_SAVE_DATA_LABELS: "true"
+      DATABASE_SAVE_DATA_HISTORIC: "true"
+      DATABASE_SAVE_IS_ON_WHATSAPP: "true"
+      DATABASE_DELETE_MESSAGE: "true"
+      CACHE_REDIS_ENABLED: "true"
+      CACHE_REDIS_URI: redis://evocrm_redis:6379/1
+      CACHE_REDIS_PREFIX_KEY: evolution_v2
+      CACHE_REDIS_SAVE_INSTANCES: "false"
       LOG_LEVEL: ERROR,WARN,INFO
     healthcheck:
       test: ["CMD-SHELL", "wget -qO- http://localhost:8080 >/dev/null || exit 1"]
