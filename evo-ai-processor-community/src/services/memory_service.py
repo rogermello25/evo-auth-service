@@ -59,12 +59,20 @@ class HttpMemoryService(BaseMemoryService):
             token_type: Type of auth token ('bearer' or 'api_access_token')
         """
         super().__init__()
-        self.base_url = (base_url or settings.CORE_SERVICE_URL).rstrip("/")
+        self.base_url = (base_url or settings.KNOWLEDGE_SERVICE_URL or "").rstrip("/")
         self.auth_token = auth_token
         self.token_type = token_type
+        self.enabled = settings.MEMORY_ENABLED and bool(self.base_url)
         # Store last used memory_base_config_id for search operations
         self._last_memory_base_config_id: Optional[Union[str, uuid.UUID]] = None
-        logger.info(f"HttpMemoryService initialized with base_url: {self.base_url}")
+        if self.enabled:
+            logger.info(f"HttpMemoryService initialized with base_url: {self.base_url}")
+        else:
+            logger.warning("HttpMemoryService disabled: KNOWLEDGE_SERVICE_URL is not configured")
+
+    def _is_available(self) -> bool:
+        """Return whether memory HTTP operations are configured and enabled."""
+        return self.enabled and bool(self.base_url)
 
     def _get_headers(self) -> Dict[str, str]:
         """Build headers for HTTP requests.
@@ -113,6 +121,10 @@ class HttpMemoryService(BaseMemoryService):
             memory_base_config_id: Optional UUID of the memory base configuration to use
         """
         try:
+            if not self._is_available():
+                logger.debug("Skipping add_session_to_memory: knowledge service is not configured")
+                return
+
             # Extract information from session
             app_name = getattr(session, "app_name", None) or getattr(session, "agent_id", None)
             user_id = getattr(session, "user_id", None) or getattr(session, "client_id", None)
@@ -258,6 +270,10 @@ class HttpMemoryService(BaseMemoryService):
             compression_interval: Compress every N messages into medium-term memory (optional)
         """
         try:
+            if not self._is_available():
+                logger.debug("Skipping add_event_to_memory: knowledge service is not configured")
+                return
+
             if not app_name or not user_id or not content:
                 logger.warning(f"Cannot add event to memory: missing required fields")
                 return
@@ -334,6 +350,10 @@ class HttpMemoryService(BaseMemoryService):
             SearchMemoryResponse with search results
         """
         try:
+            if not self._is_available():
+                logger.debug("Skipping search_memory: knowledge service is not configured")
+                return SearchMemoryResponse(memories=[], total=0, query=query)
+
             effective_memory_base_config_id = memory_base_config_id or self._last_memory_base_config_id
             
             # Call knowledge service HTTP API
@@ -413,6 +433,10 @@ class HttpMemoryService(BaseMemoryService):
             user_id: User ID to clear memories for
         """
         try:
+            if not self._is_available():
+                logger.debug("Skipping clear_user_memory: knowledge service is not configured")
+                return
+
             # Call knowledge service HTTP API
             url = f"{self.base_url}/memory/{app_name}/{user_id}"
             
@@ -440,10 +464,14 @@ class HttpMemoryService(BaseMemoryService):
             Dict containing health status information
         """
         try:
-            # Try to call health endpoint
-            url = f"{self.base_url}/memory/health/status"
-            # Note: This would need to be synchronous or we'd need to use asyncio.run
-            # For now, just return status based on configuration
+            if not self._is_available():
+                return {
+                    "status": "disabled",
+                    "service": "HttpMemoryService",
+                    "base_url": self.base_url,
+                    "type": "http",
+                }
+
             return {
                 "status": "healthy",
                 "service": "HttpMemoryService",

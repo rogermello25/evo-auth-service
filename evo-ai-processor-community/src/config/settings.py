@@ -155,9 +155,8 @@ class Settings(BaseSettings):
     CORE_SERVICE_URL: str = (
         os.getenv("CORE_SERVICE_URL", "http://localhost:9001/api/v1")
     )
-    KNOWLEDGE_SERVICE_URL: str = (
-        os.getenv("KNOWLEDGE_SERVICE_URL", "http://localhost:9001/api/v1")
-    )
+    KNOWLEDGE_SERVICE_URL: str = os.getenv("KNOWLEDGE_SERVICE_URL", "").strip()
+    KNOWLEDGE_SERVICE_API_TOKEN: Optional[str] = os.getenv("KNOWLEDGE_SERVICE_API_TOKEN")
 
     # Evo AI CRM API settings (for CRM tools)
     EVOAI_CRM_API_TOKEN: Optional[str] = os.getenv("EVOAI_CRM_API_TOKEN")

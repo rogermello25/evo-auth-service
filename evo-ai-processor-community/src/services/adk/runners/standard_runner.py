@@ -160,7 +160,10 @@ class StandardRunner:
 
                                 # Call /memory/load endpoint directly (preload mode - empty query returns medium_term summaries)
                                 try:
-                                    base_url = settings.KNOWLEDGE_SERVICE_URL.rstrip("/")
+                                    base_url = (settings.KNOWLEDGE_SERVICE_URL or "").rstrip("/")
+                                    if not base_url:
+                                        logger.warning("Skipping memory preload: KNOWLEDGE_SERVICE_URL is not configured")
+                                        raise RuntimeError("KNOWLEDGE_SERVICE_URL is not configured")
                                     url = f"{base_url}/memory/load"
 
                                     params = {
@@ -249,7 +252,10 @@ class StandardRunner:
                                 knowledge_max_results = agent_config.get("knowledge_max_results", 5)
 
                                 # Call /knowledge/search endpoint directly for preload
-                                base_url = settings.KNOWLEDGE_SERVICE_URL.rstrip("/")
+                                base_url = (settings.KNOWLEDGE_SERVICE_URL or "").rstrip("/")
+                                if not base_url:
+                                    logger.warning("Skipping knowledge preload: KNOWLEDGE_SERVICE_URL is not configured")
+                                    raise RuntimeError("KNOWLEDGE_SERVICE_URL is not configured")
                                 url = f"{base_url}/knowledge/search"
 
                                 # Use a general query for preload context

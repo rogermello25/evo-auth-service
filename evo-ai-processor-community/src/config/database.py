@@ -43,7 +43,11 @@ elif 'sslmode=verify-full' in db_url:
     db_url = db_url.replace("?sslmode=verify-full", "?ssl=true").replace("&sslmode=verify-full", "&ssl=true")
 POSTGRES_CONNECTION_STRING = db_url
 
-engine = create_engine(POSTGRES_CONNECTION_STRING)
+engine = create_engine(
+    POSTGRES_CONNECTION_STRING,
+    pool_pre_ping=True,
+    pool_recycle=300,
+)
 SessionLocal = sessionmaker(autocommit=False, autoflush=False, bind=engine)
 
 Base = declarative_base()

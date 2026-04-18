@@ -100,7 +100,13 @@ async def create_compress_memory_tool(
             
             # Call knowledge service HTTP API
             # KNOWLEDGE_SERVICE_URL already includes /api/v1
-            base_url = settings.KNOWLEDGE_SERVICE_URL.rstrip("/")
+            base_url = (settings.KNOWLEDGE_SERVICE_URL or "").rstrip("/")
+            if not base_url:
+                return {
+                    "status": "disabled",
+                    "message": "Memory compression is disabled because KNOWLEDGE_SERVICE_URL is not configured.",
+                    "messages_compressed": 0,
+                }
             url = f"{base_url}/memory/compress"
             
             payload = {
@@ -198,4 +204,3 @@ Returns:
 """
     
     return FunctionTool(func=compress_memory_with_client)
-

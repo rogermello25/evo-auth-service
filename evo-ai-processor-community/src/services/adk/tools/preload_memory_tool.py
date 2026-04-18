@@ -98,7 +98,14 @@ async def create_preload_memory_tool(
 
             # Call knowledge service HTTP API
             # KNOWLEDGE_SERVICE_URL already includes /api/v1
-            base_url = settings.KNOWLEDGE_SERVICE_URL.rstrip("/")
+            base_url = (settings.KNOWLEDGE_SERVICE_URL or "").rstrip("/")
+            if not base_url:
+                return {
+                    "status": "disabled",
+                    "message": "Memory preload is disabled because KNOWLEDGE_SERVICE_URL is not configured.",
+                    "memories": [],
+                    "total": 0,
+                }
             url = f"{base_url}/memory/load"
             
             # Use empty query for preload (loads medium_term summaries)
@@ -212,4 +219,3 @@ async def create_preload_memory_tool(
     """
     
     return FunctionTool(func=preload_memory_with_client)
-
