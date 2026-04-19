@@ -94,6 +94,7 @@ services:
 
     networks:
       - network_public
+      - roihnet
     stop_grace_period: 300s
     volumes:
       - /root/evocrm-storage/auth:/app/storage
@@ -138,6 +139,7 @@ services:
       ACTIVE_STORAGE_SERVICE: ${ACTIVE_STORAGE_SERVICE:-local}
     networks:
       - network_public
+      - roihnet
     stop_grace_period: 300s
     volumes:
       - /root/evocrm-storage/auth:/app/storage
@@ -185,6 +187,7 @@ services:
       ACTIVE_STORAGE_SERVICE: ${ACTIVE_STORAGE_SERVICE:-local}
     networks:
       - network_public
+      - roihnet
     volumes:
       - /root/evocrm-storage/crm:/app/storage
     deploy:
@@ -219,6 +222,7 @@ services:
       ACTIVE_STORAGE_SERVICE: ${ACTIVE_STORAGE_SERVICE:-local}
     networks:
       - network_public
+      - roihnet
     volumes:
       - /root/evocrm-storage/crm:/app/storage
     deploy:
