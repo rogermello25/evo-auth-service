@@ -113,7 +113,7 @@ const PipelineAutomation = ({ rules, onChange, availablePipelines = [] }: Pipeli
     handleUpdateRule(ruleId, {
       stageAutomations: [...rule.stageAutomations, newStageAutomation],
     });
-    setExpandedStage(newStageAutomation.id);
+    setExpandedStage(newStageAutomation.id || '');
   };
 
   const handleUpdateStageAutomation = (
@@ -290,7 +290,7 @@ const PipelineAutomation = ({ rules, onChange, availablePipelines = [] }: Pipeli
                                   onValueChange={value => {
                                     const stage = selectedPipeline.stages.find(s => s.id === value);
                                     if (rule.id) {
-                                      handleUpdateStageAutomation(rule.id, stageAuto.id, {
+                                      handleUpdateStageAutomation(rule.id, stageAuto.id || '', {
                                         stageId: value,
                                         stageName: stage?.name,
                                       });
@@ -318,7 +318,7 @@ const PipelineAutomation = ({ rules, onChange, availablePipelines = [] }: Pipeli
                                   variant="ghost"
                                   size="sm"
                                   onClick={() =>
-                                    setExpandedStage(isStageExpanded ? null : stageAuto.id)
+                                    setExpandedStage(isStageExpanded ? null : stageAuto.id || '')
                                   }
                                 >
                                   {isStageExpanded ? 'Recolher' : 'Configurar'}
@@ -327,7 +327,7 @@ const PipelineAutomation = ({ rules, onChange, availablePipelines = [] }: Pipeli
                                   type="button"
                                   variant="ghost"
                                   size="sm"
-                                  onClick={() => rule.id && handleRemoveStageAutomation(rule.id, stageAuto.id)}
+                                  onClick={() => rule.id && handleRemoveStageAutomation(rule.id, stageAuto.id || '')}
                                   disabled={!rule.id}
                                 >
                                   <Trash2 className="h-4 w-4 text-destructive" />
@@ -347,7 +347,7 @@ const PipelineAutomation = ({ rules, onChange, availablePipelines = [] }: Pipeli
                                       value={stageAuto.instructions || ''}
                                       onChange={e =>
                                         rule.id &&
-                                        handleUpdateStageAutomation(rule.id, stageAuto.id, {
+                                        handleUpdateStageAutomation(rule.id, stageAuto.id || '', {
                                           instructions: e.target.value,
                                         })
                                       }
@@ -369,7 +369,7 @@ const PipelineAutomation = ({ rules, onChange, availablePipelines = [] }: Pipeli
                                       checked={stageAuto.notifyTeam}
                                       onCheckedChange={checked =>
                                         rule.id &&
-                                        handleUpdateStageAutomation(rule.id, stageAuto.id, {
+                                        handleUpdateStageAutomation(rule.id, stageAuto.id || '', {
                                           notifyTeam: !!checked,
                                         })
                                       }
@@ -395,7 +395,7 @@ const PipelineAutomation = ({ rules, onChange, availablePipelines = [] }: Pipeli
                                         type="button"
                                         variant="outline"
                                         size="sm"
-                                        onClick={() => rule.id && handleAddTask(rule.id, stageAuto.id)}
+                                        onClick={() => rule.id && handleAddTask(rule.id, stageAuto.id || '')}
                                         disabled={!rule.id}
                                       >
                                         <Plus className="h-3 w-3 mr-1" />
@@ -419,7 +419,7 @@ const PipelineAutomation = ({ rules, onChange, availablePipelines = [] }: Pipeli
                                                   value={task.title}
                                                   onChange={e =>
                                                     rule.id &&
-                                                    handleUpdateTask(rule.id, stageAuto.id, task.id, {
+                                                    handleUpdateTask(rule.id, stageAuto.id || '', task.id || '', {
                                                       title: e.target.value,
                                                     })
                                                   }
@@ -435,7 +435,7 @@ const PipelineAutomation = ({ rules, onChange, availablePipelines = [] }: Pipeli
                                                   variant="ghost"
                                                   size="sm"
                                                   onClick={() =>
-                                                    rule.id && handleRemoveTask(rule.id, stageAuto.id, task.id)
+                                                    rule.id && handleRemoveTask(rule.id, stageAuto.id || '', task.id || '')
                                                   }
                                                   disabled={!rule.id}
                                                 >
@@ -448,7 +448,7 @@ const PipelineAutomation = ({ rules, onChange, availablePipelines = [] }: Pipeli
                                                   value={task.taskType}
                                                   onValueChange={value =>
                                                     rule.id &&
-                                                    handleUpdateTask(rule.id, stageAuto.id, task.id, {
+                                                    handleUpdateTask(rule.id, stageAuto.id || '', task.id || '', {
                                                       taskType: value as PipelineTask['taskType'],
                                                     })
                                                   }
@@ -469,7 +469,7 @@ const PipelineAutomation = ({ rules, onChange, availablePipelines = [] }: Pipeli
                                                   value={task.priority}
                                                   onValueChange={value =>
                                                     rule.id &&
-                                                    handleUpdateTask(rule.id, stageAuto.id, task.id, {
+                                                    handleUpdateTask(rule.id, stageAuto.id || '', task.id || '', {
                                                       priority: value as PipelineTask['priority'],
                                                     })
                                                   }
@@ -498,7 +498,7 @@ const PipelineAutomation = ({ rules, onChange, availablePipelines = [] }: Pipeli
                                                     value={task.dueDays || ''}
                                                     onChange={e =>
                                                       rule.id &&
-                                                      handleUpdateTask(rule.id, stageAuto.id, task.id, {
+                                                      handleUpdateTask(rule.id, stageAuto.id || '', task.id || '', {
                                                         dueDays: parseInt(e.target.value) || undefined,
                                                       })
                                                     }
