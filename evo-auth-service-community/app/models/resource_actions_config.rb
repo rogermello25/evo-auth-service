@@ -407,6 +407,18 @@ class ResourceActionsConfig
       }
     },
 
+    # Knowledge Base Management
+    knowledge: {
+      name: 'Knowledge Base',
+      description: 'Knowledge base management for AI agents',
+      actions: {
+        read: { name: 'View', description: 'View knowledge bases' },
+        create: { name: 'Create', description: 'Create new knowledge bases' },
+        update: { name: 'Update', description: 'Update knowledge base content' },
+        delete: { name: 'Delete', description: 'Delete knowledge bases' }
+      }
+    },
+
     dashboard_apps: {
       name: 'Dashboard Apps',
       description: 'Custom dashboard applications and widgets',
