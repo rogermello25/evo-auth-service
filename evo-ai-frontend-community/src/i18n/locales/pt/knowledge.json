@@ -1,0 +1,103 @@
+{
+  "title": "Conhecimento",
+  "description": "Gerencie bases de conhecimento e documentos para seus agentes.",
+  "loading": "Carregando bases de conhecimento...",
+  "search": {
+    "placeholder": "Buscar conhecimento..."
+  },
+  "actions": {
+    "create": "Nova base",
+    "edit": "Editar",
+    "upload": "Enviar documento",
+    "viewAgents": "Ver agentes vinculados",
+    "delete": "Excluir"
+  },
+  "empty": {
+    "title": "Nenhuma base de conhecimento encontrada",
+    "description": "Crie sua primeira base de conhecimento para começar.",
+    "noResults": "Nenhuma base de conhecimento corresponde à sua busca.",
+    "action": "Criar base"
+  },
+  "messages": {
+    "permissionDenied": {
+      "read": "Você não tem permissão para visualizar conhecimento.",
+      "create": "Você não tem permissão para criar bases de conhecimento.",
+      "update": "Você não tem permissão para editar bases de conhecimento.",
+      "delete": "Você não tem permissão para excluir bases de conhecimento."
+    },
+    "loadError": "Erro ao carregar bases de conhecimento.",
+    "createSuccess": "Base de conhecimento criada com sucesso.",
+    "createError": "Erro ao criar base de conhecimento.",
+    "updateSuccess": "Base de conhecimento atualizada com sucesso.",
+    "updateError": "Erro ao atualizar base de conhecimento.",
+    "deleteSuccess": "Base de conhecimento excluída com sucesso.",
+    "deleteError": "Erro ao excluir base de conhecimento.",
+    "uploadSuccess": "Documento enviado com sucesso.",
+    "uploadError": "Erro ao enviar documento."
+  },
+  "dialog": {
+    "delete": {
+      "title": "Excluir base de conhecimento",
+      "description": "Tem certeza que deseja excluir \"{{name}}\"? Esta ação não pode ser desfeita.",
+      "cancel": "Cancelar",
+      "deleting": "Excluindo...",
+      "confirm": "Excluir"
+    },
+    "agents": {
+      "title": "Agentes vinculados",
+      "description": "Agentes atualmente vinculados a \"{{name}}\".",
+      "noAgents": "Nenhum agente vinculado.",
+      "close": "Fechar"
+    }
+  },
+  "modal": {
+    "title": {
+      "create": "Nova base de conhecimento",
+      "edit": "Editar base de conhecimento"
+    },
+    "description": {
+      "create": "Preencha os dados da nova base de conhecimento.",
+      "edit": "Atualize os dados da base de conhecimento."
+    },
+    "labels": {
+      "name": "Nome",
+      "description": "Descrição",
+      "content": "Conteúdo"
+    },
+    "placeholders": {
+      "name": "Ex.: FAQ comercial",
+      "description": "Descreva o objetivo desta base de conhecimento",
+      "content": "Cole ou escreva aqui o conteúdo manual da base de conhecimento"
+    },
+    "hints": {
+      "content": "Você também pode complementar ou substituir esse conteúdo com documentos enviados."
+    },
+    "buttons": {
+      "cancel": "Cancelar",
+      "saving": "Salvando...",
+      "create": "Criar base",
+      "update": "Salvar alterações"
+    },
+    "validation": {
+      "nameRequired": "Informe um nome para a base de conhecimento.",
+      "nameMinLength": "O nome deve ter pelo menos 2 caracteres."
+    }
+  },
+  "upload": {
+    "title": "Enviar documento",
+    "description": "Envie um documento para complementar a base \"{{name}}\".",
+    "browse": "Selecionar arquivo",
+    "success": "Documento enviado com sucesso.",
+    "progress": "Enviando... {{progress}}%",
+    "allowedFormats": "Formatos permitidos",
+    "maxSize": "Tamanho máximo: 10 MB",
+    "dropzone": {
+      "hint": "Arraste um arquivo para cá ou selecione do computador."
+    },
+    "error": {
+      "invalidType": "Formato inválido. Use .txt, .pdf ou .docx.",
+      "fileTooLarge": "O arquivo excede o tamanho máximo de 10 MB.",
+      "uploadFailed": "Falha ao enviar o documento."
+    }
+  }
+}

@@ -834,6 +834,24 @@
       },
       "comingSoon": "Em breve..."
     },
+    "knowledgeBases": {
+      "title": "Conhecimento",
+      "subtitle": "Vincule bases de conhecimento a este agente para enriquecer o contexto.",
+      "linkedKnowledgeBases": "Bases vinculadas",
+      "noLinkedKnowledgeBases": "Nenhuma base de conhecimento vinculada",
+      "addKnowledgeBase": "Adicionar base",
+      "loading": "Carregando bases de conhecimento...",
+      "noKnowledgeBases": "Nenhuma base de conhecimento vinculada",
+      "addKnowledgeBaseDescription": "Adicione bases de conhecimento para dar acesso do agente a informacoes especificas.",
+      "selectKnowledgeBase": "Selecionar base de conhecimento",
+      "selectKnowledgeBaseDescription": "Escolha uma base de conhecimento para vincular a este agente.",
+      "searchPlaceholder": "Buscar bases de conhecimento...",
+      "noResults": "Nenhuma base de conhecimento corresponde a sua busca",
+      "noAvailableKnowledgeBases": "Nenhuma base de conhecimento disponivel para vincular",
+      "tryDifferentSearch": "Tente um termo de busca diferente",
+      "linking": "Vinculando...",
+      "linkKnowledgeBase": "Vincular base"
+    },
     "tools": {
       "title": "Ferramentas",
       "subtitle": "Configure as ferramentas disponíveis para o agente",

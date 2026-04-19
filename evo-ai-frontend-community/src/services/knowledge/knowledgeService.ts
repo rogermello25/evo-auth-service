@@ -6,12 +6,40 @@ import {
 } from '@/types/knowledge/knowledge';
 
 class KnowledgeService {
+  private normalizeKnowledgeBases(data: unknown): KnowledgeBase[] {
+    if (Array.isArray(data)) {
+      return data;
+    }
+    if (data && typeof data === 'object') {
+      const candidate = (data as { knowledgeBases?: unknown; data?: unknown }).knowledgeBases
+        ?? (data as { knowledgeBases?: unknown; data?: unknown }).data;
+      if (Array.isArray(candidate)) {
+        return candidate as KnowledgeBase[];
+      }
+    }
+    return [];
+  }
+
+  private normalizeAgentLinks(data: unknown): { agentId: string }[] {
+    if (Array.isArray(data)) {
+      return data as { agentId: string }[];
+    }
+    if (data && typeof data === 'object') {
+      const candidate = (data as { agents?: unknown; data?: unknown }).agents
+        ?? (data as { agents?: unknown; data?: unknown }).data;
+      if (Array.isArray(candidate)) {
+        return candidate as { agentId: string }[];
+      }
+    }
+    return [];
+  }
+
   /**
    * List all knowledge bases
    */
   async listKnowledgeBases(): Promise<KnowledgeBase[]> {
     const response = await apiEvolution.get('/knowledge-base');
-    return response.data;
+    return this.normalizeKnowledgeBases(response.data);
   }
 
   /**
@@ -72,7 +100,7 @@ class KnowledgeService {
    */
   async searchKnowledge(query: string, limit: number = 10): Promise<KnowledgeBase[]> {
     const response = await apiEvolution.post('/knowledge-base/search', { query, limit });
-    return response.data;
+    return this.normalizeKnowledgeBases(response.data);
   }
 
   /**
@@ -80,7 +108,7 @@ class KnowledgeService {
    */
   async getAgentKnowledgeBases(agentId: string): Promise<KnowledgeBase[]> {
     const response = await apiEvolution.get(`/agent/${agentId}/knowledge-bases`);
-    return response.data;
+    return this.normalizeKnowledgeBases(response.data);
   }
 
   /**
@@ -102,7 +130,7 @@ class KnowledgeService {
    */
   async getKnowledgeBaseAgents(knowledgeBaseId: string): Promise<{ agentId: string }[]> {
     const response = await apiEvolution.get(`/knowledge-base/${knowledgeBaseId}/agents`);
-    return response.data;
+    return this.normalizeAgentLinks(response.data);
   }
 }
 

@@ -28,7 +28,7 @@ const KnowledgeBasesSection = ({
       // Get knowledge bases linked to this agent using the dedicated API
       const linked = await knowledgeService.getAgentKnowledgeBases(agentId);
 
-      setLinkedKnowledgeBases(linked);
+      setLinkedKnowledgeBases(Array.isArray(linked) ? linked : []);
     } catch (error) {
       console.error('Error loading linked knowledge bases:', error);
     } finally {
@@ -43,7 +43,7 @@ const KnowledgeBasesSection = ({
   // Handle linking a knowledge base
   const handleLinkKnowledgeBase = useCallback(async (knowledgeBaseId: string) => {
     try {
-      await knowledgeService.linkToAgent(knowledgeBaseId, agentId);
+      await knowledgeService.linkToAgent(agentId, knowledgeBaseId);
       await loadLinkedKnowledgeBases();
       setShowSelectionDialog(false);
     } catch (error) {
@@ -55,7 +55,7 @@ const KnowledgeBasesSection = ({
   const handleUnlinkKnowledgeBase = useCallback(async (knowledgeBaseId: string) => {
     try {
       setIsRemoving(knowledgeBaseId);
-      await knowledgeService.unlinkFromAgent(knowledgeBaseId, agentId);
+      await knowledgeService.unlinkFromAgent(agentId, knowledgeBaseId);
       await loadLinkedKnowledgeBases();
     } catch (error) {
       console.error('Error unlinking knowledge base:', error);

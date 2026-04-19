@@ -32,6 +32,7 @@ import ptBRUsers from './locales/pt-BR/users.json';
 import ptBRMarketplace from './locales/pt-BR/marketplace.json';
 import ptBRDocumentation from './locales/pt-BR/documentation.json';
 import ptBRAiAgents from './locales/pt-BR/aiAgents.json';
+import ptBRKnowledge from './locales/pt-BR/knowledge.json';
 import ptBRApiKeys from './locales/pt-BR/apiKeys.json';
 import ptBRAccessTokens from './locales/pt-BR/accessTokens.json';
 import ptBRIntegrations from './locales/pt-BR/integrations.json';
@@ -77,6 +78,7 @@ import ptUsers from './locales/pt/users.json';
 import ptMarketplace from './locales/pt/marketplace.json';
 import ptDocumentation from './locales/pt/documentation.json';
 import ptAiAgents from './locales/pt/aiAgents.json';
+import ptKnowledge from './locales/pt/knowledge.json';
 import ptApiKeys from './locales/pt/apiKeys.json';
 import ptAccessTokens from './locales/pt/accessTokens.json';
 import ptIntegrations from './locales/pt/integrations.json';
@@ -123,6 +125,7 @@ import enUsers from './locales/en/users.json';
 import enMarketplace from './locales/en/marketplace.json';
 import enDocumentation from './locales/en/documentation.json';
 import enAiAgents from './locales/en/aiAgents.json';
+import enKnowledge from './locales/en/knowledge.json';
 import enApiKeys from './locales/en/apiKeys.json';
 import enAccessTokens from './locales/en/accessTokens.json';
 import enIntegrations from './locales/en/integrations.json';
@@ -346,6 +349,7 @@ const resources = {
     marketplace: ptBRMarketplace,
     documentation: ptBRDocumentation,
     aiAgents: ptBRAiAgents,
+    knowledge: ptBRKnowledge,
     apiKeys: ptBRApiKeys,
     accessTokens: ptBRAccessTokens,
     integrations: ptBRIntegrations,
@@ -394,6 +398,7 @@ const resources = {
     marketplace: ptMarketplace,
     documentation: ptDocumentation,
     aiAgents: ptAiAgents,
+    knowledge: ptKnowledge,
     apiKeys: ptApiKeys,
     accessTokens: ptAccessTokens,
     integrations: ptIntegrations,
@@ -443,6 +448,7 @@ const resources = {
     marketplace: enMarketplace,
     documentation: enDocumentation,
     aiAgents: enAiAgents,
+    knowledge: enKnowledge,
     apiKeys: enApiKeys,
     accessTokens: enAccessTokens,
     integrations: enIntegrations,
@@ -491,6 +497,7 @@ const resources = {
     marketplace: esMarketplace,
     documentation: esDocumentation,
     aiAgents: esAiAgents,
+    knowledge: enKnowledge,
     apiKeys: esApiKeys,
     accessTokens: esAccessTokens,
     integrations: esIntegrations,
@@ -539,6 +546,7 @@ const resources = {
     marketplace: frMarketplace,
     documentation: frDocumentation,
     aiAgents: frAiAgents,
+    knowledge: enKnowledge,
     apiKeys: frApiKeys,
     accessTokens: frAccessTokens,
     integrations: frIntegrations,
@@ -587,6 +595,7 @@ const resources = {
     marketplace: itMarketplace,
     documentation: itDocumentation,
     aiAgents: itAiAgents,
+    knowledge: enKnowledge,
     apiKeys: itApiKeys,
     accessTokens: itAccessTokens,
     integrations: itIntegrations,
