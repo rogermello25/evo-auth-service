@@ -16,6 +16,7 @@ import {
   InactivityActionsTab,
   TransferRulesModal,
   PipelineRulesModal,
+  PipelineAutomationModal,
 } from '@/components/agents/configuration';
 import ContactEditModal from '@/components/agents/configuration/ContactEditModal';
 import { BehaviorSettings } from '@/components/agents/configuration/SystemTab';
@@ -51,6 +52,26 @@ interface ConfigurationSectionProps {
   inactivityActions: InactivityAction[];
   transferRules: TransferRule[];
   pipelineRules: PipelineRule[];
+  pipelineAutomation: Array<{
+    id: string;
+    pipelineId: string;
+    pipelineName?: string;
+    stageAutomations: Array<{
+      id: string;
+      stageId: string;
+      stageName?: string;
+      instructions: string;
+      createTasks: Array<{
+        id: string;
+        title: string;
+        taskType: 'call' | 'email' | 'meeting' | 'follow_up' | 'note' | 'other';
+        priority: 'low' | 'medium' | 'high' | 'urgent';
+        dueDays?: number;
+        description?: string;
+      }>;
+      notifyTeam: boolean;
+    }>;
+  }>;
   contactEditConfig: ContactEditConfig;
   availablePipelines?: Array<{
     id: string;
@@ -79,6 +100,26 @@ interface ConfigurationSectionProps {
   onInactivityActionsChange: (actions: InactivityAction[]) => void;
   onTransferRulesChange: (rules: TransferRule[]) => void;
   onPipelineRulesChange: (rules: PipelineRule[]) => void;
+  onPipelineAutomationChange: (automation: Array<{
+    id: string;
+    pipelineId: string;
+    pipelineName?: string;
+    stageAutomations: Array<{
+      id: string;
+      stageId: string;
+      stageName?: string;
+      instructions: string;
+      createTasks: Array<{
+        id: string;
+        title: string;
+        taskType: 'call' | 'email' | 'meeting' | 'follow_up' | 'note' | 'other';
+        priority: 'low' | 'medium' | 'high' | 'urgent';
+        dueDays?: number;
+        description?: string;
+      }>;
+      notifyTeam: boolean;
+    }>;
+  }>) => void;
   onContactEditConfigChange: (config: ContactEditConfig) => void;
   onInstructionSync?: (instruction: string) => void;
   onApiKeysReload: () => void;
@@ -97,6 +138,7 @@ const ConfigurationSection = ({
   inactivityActions,
   transferRules,
   pipelineRules,
+  pipelineAutomation,
   contactEditConfig,
   availablePipelines = [],
   availableUsers = [],
@@ -111,6 +153,7 @@ const ConfigurationSection = ({
   onInactivityActionsChange,
   onTransferRulesChange,
   onPipelineRulesChange,
+  onPipelineAutomationChange,
   onContactEditConfigChange,
   onInstructionSync,
   onApiKeysReload,
@@ -120,6 +163,7 @@ const ConfigurationSection = ({
   // Estados para modais
   const [showTransferRulesModal, setShowTransferRulesModal] = useState(false);
   const [showPipelineRulesModal, setShowPipelineRulesModal] = useState(false);
+  const [showPipelineAutomationModal, setShowPipelineAutomationModal] = useState(false);
   const [showContactEditModal, setShowContactEditModal] = useState(false);
   const [activeTab, setActiveTab] = useState('general');
 
@@ -192,6 +236,7 @@ const ConfigurationSection = ({
               onBehaviorSettingsChange={onBehaviorSettingsChange}
               onShowTransferRulesModal={() => setShowTransferRulesModal(true)}
               onShowPipelineRulesModal={() => setShowPipelineRulesModal(true)}
+              onShowPipelineAutomationModal={() => setShowPipelineAutomationModal(true)}
               onShowContactEditModal={() => setShowContactEditModal(true)}
             />
           </TabsContent>
@@ -224,6 +269,15 @@ const ConfigurationSection = ({
         onOpenChange={setShowPipelineRulesModal}
         rules={pipelineRules}
         onChange={onPipelineRulesChange}
+        availablePipelines={availablePipelines}
+      />
+
+      {/* Modal de Automação de Pipeline */}
+      <PipelineAutomationModal
+        open={showPipelineAutomationModal}
+        onOpenChange={setShowPipelineAutomationModal}
+        rules={pipelineAutomation}
+        onChange={onPipelineAutomationChange}
         availablePipelines={availablePipelines}
       />
 

@@ -70,6 +70,7 @@ interface SystemTabProps {
   onBehaviorSettingsChange: (settings: BehaviorSettings) => void;
   onShowTransferRulesModal: () => void;
   onShowPipelineRulesModal: () => void;
+  onShowPipelineAutomationModal: () => void;
   onShowContactEditModal: () => void;
 }
 
@@ -83,6 +84,7 @@ export const SystemTab = ({
   onBehaviorSettingsChange,
   onShowTransferRulesModal,
   onShowPipelineRulesModal,
+  onShowPipelineAutomationModal,
   onShowContactEditModal,
 }: SystemTabProps) => {
   const { t } = useLanguage('aiAgents');
@@ -278,6 +280,35 @@ export const SystemTab = ({
                   })
                 }
               />
+            </div>
+
+            {/* Automação de Pipeline - Tarefas automáticas */}
+            <div className="flex items-center justify-between py-3 border-b last:border-0">
+              <div className="flex items-start gap-3 flex-1">
+                <Zap className="h-5 w-5 text-amber-500 mt-0.5" />
+                <div className="flex-1">
+                  <div className="flex items-center gap-2">
+                    <Label htmlFor="allow-pipeline-automation" className="font-medium cursor-pointer">
+                      {t('edit.configuration.behavior.allowPipelineAutomation') ||
+                        'Automação de pipeline'}
+                    </Label>
+                    <Button
+                      type="button"
+                      variant="outline"
+                      size="sm"
+                      onClick={onShowPipelineAutomationModal}
+                      className="h-7 px-2 text-xs"
+                    >
+                      <Settings className="h-3 w-3 mr-1" />
+                      {t('edit.configuration.behavior.configureAutomation') || 'Configurar tarefas'}
+                    </Button>
+                  </div>
+                  <p className="text-sm text-muted-foreground mt-1">
+                    {t('edit.configuration.behavior.allowPipelineAutomationDescription') ||
+                      'Cria tarefas automaticamente quando conversas entram em estágios e notifica equipes'}
+                  </p>
+                </div>
+              </div>
             </div>
 
             {/* Timezone */}

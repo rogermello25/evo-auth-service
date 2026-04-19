@@ -174,6 +174,30 @@ const AgentEditPage = () => {
     instructions: '',
   });
 
+  // Pipeline automation state
+  const [pipelineAutomation, setPipelineAutomation] = useState<
+    Array<{
+      id: string;
+      pipelineId: string;
+      pipelineName?: string;
+      stageAutomations: Array<{
+        id: string;
+        stageId: string;
+        stageName?: string;
+        instructions: string;
+        createTasks: Array<{
+          id: string;
+          title: string;
+          taskType: 'call' | 'email' | 'meeting' | 'follow_up' | 'note' | 'other';
+          priority: 'low' | 'medium' | 'high' | 'urgent';
+          dueDays?: number;
+          description?: string;
+        }>;
+        notifyTeam: boolean;
+      }>;
+    }>
+  >([]);
+
   // Estados de ferramentas e MCP
   const [tools, setTools] = useState<Tool[]>([]);
   const [agentTools, setAgentTools] = useState<string[]>([]);
@@ -513,6 +537,30 @@ const AgentEditPage = () => {
           },
         );
 
+        // Carregar pipeline automation
+        setPipelineAutomation(
+          (config?.pipeline_automation as Array<{
+            id: string;
+            pipelineId: string;
+            pipelineName?: string;
+            stageAutomations: Array<{
+              id: string;
+              stageId: string;
+              stageName?: string;
+              instructions: string;
+              createTasks: Array<{
+                id: string;
+                title: string;
+                taskType: 'call' | 'email' | 'meeting' | 'follow_up' | 'note' | 'other';
+                priority: 'low' | 'medium' | 'high' | 'urgent';
+                dueDays?: number;
+                description?: string;
+              }>;
+              notifyTeam: boolean;
+            }>;
+          }>) || [],
+        );
+
         // Carregar ferramentas (aplicável a todos os tipos)
         setTools((agentData.config?.tools || []) as unknown as Tool[]);
         const agentToolsIds = agentData.config?.agent_tools || [];
@@ -682,6 +730,7 @@ const AgentEditPage = () => {
           inactivity_actions: inactivityActions,
           transfer_rules: transferRules,
           pipeline_rules: pipelineRules,
+          pipeline_automation: pipelineAutomation,
           contact_edit_config: contactEditConfig,
         } as Record<string, unknown>;
       } else if (agent.type === 'a2a' && a2aConfigData) {
@@ -719,6 +768,7 @@ const AgentEditPage = () => {
           inactivity_actions: inactivityActions,
           transfer_rules: transferRules,
           pipeline_rules: pipelineRules,
+          pipeline_automation: pipelineAutomation,
           contact_edit_config: contactEditConfig,
         } as Record<string, unknown>;
       } else if (agent.type === 'task' && taskConfigData) {
@@ -754,6 +804,7 @@ const AgentEditPage = () => {
           inactivity_actions: inactivityActions,
           transfer_rules: transferRules,
           pipeline_rules: pipelineRules,
+          pipeline_automation: pipelineAutomation,
           contact_edit_config: contactEditConfig,
         } as Record<string, unknown>;
       } else if (agent.type === 'external' && externalConfigData) {
@@ -801,6 +852,7 @@ const AgentEditPage = () => {
           inactivity_actions: inactivityActions,
           transfer_rules: transferRules,
           pipeline_rules: pipelineRules,
+          pipeline_automation: pipelineAutomation,
           contact_edit_config: contactEditConfig,
         } as Record<string, unknown>;
       }
@@ -876,6 +928,7 @@ const AgentEditPage = () => {
             inactivityActions={inactivityActions}
             transferRules={transferRules}
             pipelineRules={pipelineRules}
+            pipelineAutomation={pipelineAutomation}
             contactEditConfig={contactEditConfig}
             availablePipelines={availablePipelines}
             availableUsers={availableUsers}
@@ -922,6 +975,10 @@ const AgentEditPage = () => {
             }}
             onPipelineRulesChange={rules => {
               setPipelineRules(rules);
+              setIsDirty(true);
+            }}
+            onPipelineAutomationChange={automation => {
+              setPipelineAutomation(automation);
               setIsDirty(true);
             }}
             onContactEditConfigChange={config => {

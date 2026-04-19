@@ -137,6 +137,13 @@ class Pipelines::ConversationService
     return if stage.automation_rules.blank?
 
     Rails.logger.info "Executing automation for conversation #{pipeline_item.id} in stage #{stage.name}"
+
+    # Execute agent-based pipeline stage automation (tasks, notifications)
+    PipelineStageAutomationService.new(
+      pipeline_item: pipeline_item,
+      new_stage: stage,
+      user: @user
+    ).execute
   end
 
   def notify_conversation_added(pipeline_item)
