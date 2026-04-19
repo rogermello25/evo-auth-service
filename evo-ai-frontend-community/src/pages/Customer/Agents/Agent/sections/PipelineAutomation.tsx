@@ -17,7 +17,7 @@ import {  Info, Trash2, Plus, CheckSquare, Calendar } from 'lucide-react';
 import { useState } from 'react';
 
 export interface PipelineTask {
-  id: string;
+  id?: string;
   title: string;
   taskType: 'call' | 'email' | 'meeting' | 'follow_up' | 'note' | 'other';
   priority: 'low' | 'medium' | 'high' | 'urgent';
@@ -26,7 +26,7 @@ export interface PipelineTask {
 }
 
 export interface StageAutomation {
-  id: string;
+  id?: string;
   stageId: string;
   stageName?: string;
   instructions: string;

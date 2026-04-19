@@ -101,16 +101,16 @@ interface ConfigurationSectionProps {
   onTransferRulesChange: (rules: TransferRule[]) => void;
   onPipelineRulesChange: (rules: PipelineRule[]) => void;
   onPipelineAutomationChange: (automation: Array<{
-    id: string;
+    id?: string;
     pipelineId: string;
     pipelineName?: string;
     stageAutomations: Array<{
-      id: string;
+      id?: string;
       stageId: string;
       stageName?: string;
       instructions: string;
       createTasks: Array<{
-        id: string;
+        id?: string;
         title: string;
         taskType: 'call' | 'email' | 'meeting' | 'follow_up' | 'note' | 'other';
         priority: 'low' | 'medium' | 'high' | 'urgent';
