@@ -1,0 +1,135 @@
+================================================================================
+RELATÓRIO: PROBLEMA DE PERFORMANCE FRONTEND - EVO CRM
+================================================================================
+
+DATA: 2026-04-20
+SISTEMA: evo-ai-frontend-community (React + Vite + TypeScript)
+
+================================================================================
+RESUMO EXECUTIVO
+================================================================================
+
+O bundle do frontend está em 6MB (gzip 1.4MB), causando:
+- Login lento ou que nunca carrega
+- App "gira" infinitamente
+- Browser trava com memórias esgotadas
+
+CAUSA RAIZ IDENTIFICADA:
+1. vite.config.ts tem `manualChunks: undefined` - desabilita TODO code splitting
+2. @evoapi/design-system (45MB!) está em optimizeDeps.include
+3. 77 páginas são static imports - nada é dividido
+4. Barrel imports do design-system impedem tree-shaking
+
+================================================================================
+SOLUÇÕES POSSÍVEIS
+================================================================================
+
+-----------
+OPÇÃO 1: Code Splitting Básico (RECOMENDADO AGORA)
+-----------
+Tempo: 1-2 horas
+Risco: Baixo
+Resultado: Bundle de 6MB -> ~3-4MB com chunks separados
+
+O que faz:
+- Habilita vendor chunking no Vite config
+- Divide vendor-ui, vendor-react, vendor-utils em chunks separados
+- NÃO muda imports nem lógica de rotas
+
+O que NÃO resolve:
+- @evoapi/design-system continua com ~45MB
+- Main bundle ainda terá ~3-4MB
+- Precisa de projeto maior para solução definitiva
+
+-----------
+OPÇÃO 2: Mudar Imports para Per-Componente (MÉDIO PRAZO)
+-----------
+Tempo: 2-3 semanas
+Risco: Alto (259 arquivos para alterar)
+
+O problema:
+259 arquivos fazem:
+  import { Button, Input } from '@evoapi/design-system';
+
+Isto importa TODO o barrel do pacote, não só Button e Input.
+
+A solução:
+  import { Button } from '@evoapi/design-system/button';
+  import { Input } from '@evoapi/design-system/input';
+
+Por que é arriscado:
+- 259 arquivos para alterar manualmente
+- Cada alteração precisa ser testada
+- Design system pode não exportar todos subpaths corretamente
+- Risco de quebrar funcionalidades existentes
+
+-----------
+OPÇÃO 3: Substituir Design System (LONGO PRAZO)
+-----------
+Tempo: 3-4 semanas
+Risco: Muito alto
+
+Migrar para Chakra UI, shadcn/ui, ou Material UI.
+Requer reescrever TODO o frontend e mudar estética do app.
+
+-----------
+OPÇÃO 4: Refatorar RouterGuard para Lazy Loading (MÉDIO PRAZO)
+-----------
+Tempo: ~1 semana
+Risco: Médio
+
+O problema com lazy loading atual:
+- RouterGuard bloqueia tudo enquanto isLoading é true
+- PermissionRoute mostra spinner durante loading
+- Suspense fica "preso" - RouterGuard nem chega a renderizar children
+
+Seria preciso refatorar RouterGuard + PermissionRoute para funcionar com Suspense.
+
+================================================================================
+SITUAÇÃO ATUAL DO SWARM
+================================================================================
+
+Serviços Swarm (funcionando):
+- evocrm_evocrm_auth - OK
+- evocrm_evocrm_core - OK
+- evocrm_evocrm_processor - OK
+- evocrm_evocrm_frontend - OK (bundle 6MB)
+- evocrm_evocrm_gateway - OK
+- evocrm_evocrm_crm - OK
+- evocrm_evocrm_redis - OK
+
+Containers Orfãos (NÃO são parte do Swarm):
+- evocrm-evo-auth-1 - em restart loop (não consegue resolver postgres)
+- evocrm-evo-core-1 - em restart loop
+- evocrm-evo-processor-1 - em restart loop
+- evocrm-evolution-api-1 - em restart loop
+
+Estes containers orfãos foram criados manualmente e não estão na rede
+evocrm_default. NÃO são parte do deploy atual e devem ser removidos.
+
+================================================================================
+RECOMENDAÇÃO
+================================================================================
+
+FAZER AGORA: Opção 1 (Code Splitting Básico)
+- 1-2 horas de trabalho
+- Baixo risco
+- Resolve problema imediato de "app não carrega"
+
+AGENDAR DEPOIS: Projeto separado para otimização profunda do design-system
+- Opção 2 ou 3 conforme prioridade do negocio
+
+================================================================================
+ARQUIVOS CRÍTICOS
+================================================================================
+
+Para code splitting básico (OPÇÃO 1):
+- evo-ai-frontend-community/vite.config.ts (mudar manualChunks)
+
+Para solução definitiva (OPÇÃO 2 ou 3):
+- evo-ai-frontend-community/src/routes/index.tsx (259 arquivos com barrel imports)
+- evo-ai-frontend-community/src/guards/RouterGuard.tsx (refatorar)
+- evo-ai-frontend-community/src/routes/PermissionRoute.tsx (refatorar)
+- evo-ai-frontend-community/src/contexts/PermissionsContext.tsx (circular dependency)
+
+================================================================================

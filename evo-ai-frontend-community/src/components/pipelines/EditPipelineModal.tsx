@@ -1,26 +1,24 @@
 import { useState, useEffect } from 'react';
 import { useLanguage } from '@/hooks/useLanguage';
-import {
-  Dialog,
-  DialogContent,
-  DialogDescription,
-  DialogFooter,
-  DialogHeader,
-  DialogTitle,
-  Button,
-  Input,
-  Label,
-  Textarea,
-  Select,
-  SelectContent,
-  SelectItem,
-  SelectTrigger,
-  SelectValue,
-  Tabs,
-  TabsContent,
-  TabsList,
-  TabsTrigger,
-} from '@evoapi/design-system';
+import { Dialog } from '@evoapi/design-system/dialog';
+import { DialogContent } from '@evoapi/design-system/dialog';
+import { DialogDescription } from '@evoapi/design-system/dialog';
+import { DialogFooter } from '@evoapi/design-system/dialog';
+import { DialogHeader } from '@evoapi/design-system/dialog';
+import { DialogTitle } from '@evoapi/design-system/dialog';
+import { Button } from '@evoapi/design-system/button';
+import { Input } from '@evoapi/design-system/input';
+import { Label } from '@evoapi/design-system/label';
+import { Textarea } from '@evoapi/design-system/textarea';
+import { Select } from '@evoapi/design-system/select';
+import { SelectContent } from '@evoapi/design-system/select';
+import { SelectItem } from '@evoapi/design-system/select';
+import { SelectTrigger } from '@evoapi/design-system/select';
+import { SelectValue } from '@evoapi/design-system/select';
+import { Tabs } from '@evoapi/design-system/tabs';
+import { TabsContent } from '@evoapi/design-system/tabs';
+import { TabsList } from '@evoapi/design-system/tabs';
+import { TabsTrigger } from '@evoapi/design-system/tabs';;
 import { Loader2, X, Users } from 'lucide-react';
 import { Pipeline, UpdatePipelineData } from '@/types/analytics';
 import TeamsService from '@/services/teams/teamsService';

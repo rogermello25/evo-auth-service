@@ -1,12 +1,10 @@
 import { useState, useEffect, useCallback, useMemo } from 'react';
-import {
-  Card,
-  CardContent,
-  CardHeader,
-  CardTitle,
-  CardDescription,
-  Button,
-} from '@evoapi/design-system';
+import { Card } from '@evoapi/design-system/card';
+import { CardContent } from '@evoapi/design-system/card';
+import { CardHeader } from '@evoapi/design-system/card';
+import { CardTitle } from '@evoapi/design-system/card';
+import { CardDescription } from '@evoapi/design-system/card';
+import { Button } from '@evoapi/design-system/button';;
 import { Settings, Save, Loader2, AlertCircle } from 'lucide-react';
 import integrationService from '@/services/agents/integrationService';
 import { useLanguage } from '@/hooks/useLanguage';

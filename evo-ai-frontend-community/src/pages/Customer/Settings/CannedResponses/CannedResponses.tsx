@@ -2,15 +2,13 @@ import { useState, useEffect, useCallback } from 'react';
 import { useLanguage } from '@/hooks/useLanguage';
 import { SettingsCannedResponsesTour } from '@/tours';
 import { toast } from 'sonner';
-import {
-  Dialog,
-  DialogContent,
-  DialogDescription,
-  DialogFooter,
-  DialogHeader,
-  DialogTitle,
-  Button,
-} from '@evoapi/design-system';
+import { Dialog } from '@evoapi/design-system/dialog';
+import { DialogContent } from '@evoapi/design-system/dialog';
+import { DialogDescription } from '@evoapi/design-system/dialog';
+import { DialogFooter } from '@evoapi/design-system/dialog';
+import { DialogHeader } from '@evoapi/design-system/dialog';
+import { DialogTitle } from '@evoapi/design-system/dialog';
+import { Button } from '@evoapi/design-system/button';;
 import { MessageSquare } from 'lucide-react';
 import EmptyState from '@/components/base/EmptyState';
 

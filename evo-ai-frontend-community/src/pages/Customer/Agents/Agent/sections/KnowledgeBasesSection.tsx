@@ -1,6 +1,10 @@
 import { useState, useEffect, useCallback } from 'react';
 import { useLanguage } from '@/hooks/useLanguage';
-import { Button, Badge, Card, CardContent, CardHeader } from '@evoapi/design-system';
+import { Button } from '@evoapi/design-system/button';
+import { Badge } from '@evoapi/design-system/badge';
+import { Card } from '@evoapi/design-system/card';
+import { CardContent } from '@evoapi/design-system/card';
+import { CardHeader } from '@evoapi/design-system/card';;
 import { BookOpen, Plus, X, Loader2 } from 'lucide-react';
 import { KnowledgeBase } from '@/types/knowledge/knowledge';
 import { knowledgeService } from '@/services/knowledge/knowledgeService';

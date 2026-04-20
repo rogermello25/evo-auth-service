@@ -1,5 +1,8 @@
 import { useState } from 'react';
-import { Button, Input, Label, Textarea } from '@evoapi/design-system';
+import { Button } from '@evoapi/design-system/button';
+import { Input } from '@evoapi/design-system/input';
+import { Label } from '@evoapi/design-system/label';
+import { Textarea } from '@evoapi/design-system/textarea';;
 import { Sparkles, Wand2, Loader2 } from 'lucide-react';
 import { useLanguage } from '@/hooks/useLanguage';
 import { openaiService } from '@/services/integrations/openaiService';

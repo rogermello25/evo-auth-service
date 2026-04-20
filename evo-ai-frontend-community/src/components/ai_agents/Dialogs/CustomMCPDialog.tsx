@@ -1,16 +1,14 @@
 import { useState, useEffect, useRef } from 'react';
-import {
-  Dialog,
-  DialogContent,
-  DialogDescription,
-  DialogFooter,
-  DialogHeader,
-  DialogTitle,
-  Button,
-  Badge,
-  Input,
-  Checkbox,
-} from '@evoapi/design-system';
+import { Dialog } from '@evoapi/design-system/dialog';
+import { DialogContent } from '@evoapi/design-system/dialog';
+import { DialogDescription } from '@evoapi/design-system/dialog';
+import { DialogFooter } from '@evoapi/design-system/dialog';
+import { DialogHeader } from '@evoapi/design-system/dialog';
+import { DialogTitle } from '@evoapi/design-system/dialog';
+import { Button } from '@evoapi/design-system/button';
+import { Badge } from '@evoapi/design-system/badge';
+import { Input } from '@evoapi/design-system/input';
+import { Checkbox } from '@evoapi/design-system/checkbox';;
 import { Search, Server, Tag, Clock, RotateCcw, Plus, Wand } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
 import { listCustomMcpServers } from '@/services/agents';

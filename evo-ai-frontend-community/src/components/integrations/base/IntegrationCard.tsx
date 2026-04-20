@@ -1,6 +1,8 @@
 import { useState } from 'react';
 import { useLanguage } from '@/hooks/useLanguage';
-import { Button, Card, CardContent } from '@evoapi/design-system';
+import { Button } from '@evoapi/design-system/button';
+import { Card } from '@evoapi/design-system/card';
+import { CardContent } from '@evoapi/design-system/card';;
 import { Settings, Power } from 'lucide-react';
 import { Integration } from '@/types/integrations';
 import BaseStatusBadge from '@/components/base/BaseStatusBadge';

@@ -1,14 +1,12 @@
 import { useState } from 'react';
-import {
-  Dialog,
-  DialogContent,
-  DialogHeader,
-  DialogTitle,
-  DialogFooter,
-  Button,
-  Label,
-  Textarea,
-} from '@evoapi/design-system';
+import { Dialog } from '@evoapi/design-system/dialog';
+import { DialogContent } from '@evoapi/design-system/dialog';
+import { DialogHeader } from '@evoapi/design-system/dialog';
+import { DialogTitle } from '@evoapi/design-system/dialog';
+import { DialogFooter } from '@evoapi/design-system/dialog';
+import { Button } from '@evoapi/design-system/button';
+import { Label } from '@evoapi/design-system/label';
+import { Textarea } from '@evoapi/design-system/textarea';;
 import { Sparkles, Loader2, Wand2 } from 'lucide-react';
 import { toast } from 'sonner';
 import { openaiService } from '@/services/integrations/openaiService';

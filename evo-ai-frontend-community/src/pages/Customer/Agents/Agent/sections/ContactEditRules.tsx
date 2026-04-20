@@ -1,12 +1,10 @@
 import { useLanguage } from '@/hooks/useLanguage';
-import {
-  Switch,
-  Textarea,
-  Card,
-  CardContent,
-  Checkbox,
-  Label,
-} from '@evoapi/design-system';
+import { Switch } from '@evoapi/design-system/switch';
+import { Textarea } from '@evoapi/design-system/textarea';
+import { Card } from '@evoapi/design-system/card';
+import { CardContent } from '@evoapi/design-system/card';
+import { Checkbox } from '@evoapi/design-system/checkbox';
+import { Label } from '@evoapi/design-system/label';;
 import { Info } from 'lucide-react';
 
 export interface ContactEditConfig {

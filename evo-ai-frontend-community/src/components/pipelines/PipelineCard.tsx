@@ -1,15 +1,14 @@
 import { useLanguage } from '@/hooks/useLanguage';
-import { Card, CardContent } from '@evoapi/design-system';
-import { Button } from '@evoapi/design-system';
+import { Card } from '@evoapi/design-system/card';
+import { CardContent } from '@evoapi/design-system/card';;
+import { Button } from '@evoapi/design-system/button';;
 import { GitBranch, Eye, Edit, Trash2, Copy, CopyPlus, Power, MoreVertical, Star } from 'lucide-react';
 import { toast } from 'sonner';
-import {
-  DropdownMenu,
-  DropdownMenuContent,
-  DropdownMenuItem,
-  DropdownMenuSeparator,
-  DropdownMenuTrigger,
-} from '@evoapi/design-system';
+import { DropdownMenu } from '@evoapi/design-system/dropdown-menu';
+import { DropdownMenuContent } from '@evoapi/design-system/dropdown-menu';
+import { DropdownMenuItem } from '@evoapi/design-system/dropdown-menu';
+import { DropdownMenuSeparator } from '@evoapi/design-system/dropdown-menu';
+import { DropdownMenuTrigger } from '@evoapi/design-system/dropdown-menu';;
 import { Pipeline } from '@/types/analytics';
 import { cn } from '@/lib/utils';
 

@@ -1,18 +1,16 @@
 import { useCallback } from 'react';
 import { useLanguage } from '@/hooks/useLanguage';
 import { LLMConfigData } from '@/components/ai_agents/Forms/LLMConfigForm';
-import {
-  Switch,
-  Label,
-  Select,
-  SelectContent,
-  SelectItem,
-  SelectTrigger,
-  SelectValue,
-  Input,
-  Textarea,
-  Button,
-} from '@evoapi/design-system';
+import { Switch } from '@evoapi/design-system/switch';
+import { Label } from '@evoapi/design-system/label';
+import { Select } from '@evoapi/design-system/select';
+import { SelectContent } from '@evoapi/design-system/select';
+import { SelectItem } from '@evoapi/design-system/select';
+import { SelectTrigger } from '@evoapi/design-system/select';
+import { SelectValue } from '@evoapi/design-system/select';
+import { Input } from '@evoapi/design-system/input';
+import { Textarea } from '@evoapi/design-system/textarea';
+import { Button } from '@evoapi/design-system/button';;
 import { Agent } from '@/types/agents';
 import {
   UserRound,

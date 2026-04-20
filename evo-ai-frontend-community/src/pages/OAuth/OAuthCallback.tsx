@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { useSearchParams } from 'react-router-dom';
-import { Alert, AlertTitle, AlertDescription } from '@evoapi/design-system';
+import { Alert } from '@evoapi/design-system/alert';
+import { AlertTitle, AlertDescription } from '@evoapi/design-system';;
 import { AlertCircle, CheckCircle, Loader2 } from 'lucide-react';
 import { useLanguage } from '@/hooks/useLanguage';
 

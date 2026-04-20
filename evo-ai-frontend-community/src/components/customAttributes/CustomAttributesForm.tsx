@@ -1,21 +1,19 @@
 import { useState, useEffect } from 'react';
 import { useLanguage } from '@/hooks/useLanguage';
-import {
-  Button,
-  Input,
-  Label,
-  Card,
-  CardContent,
-  CardHeader,
-  CardTitle,
-  Select,
-  SelectContent,
-  SelectItem,
-  SelectTrigger,
-  SelectValue,
-  Textarea,
-  Switch,
-} from '@evoapi/design-system';
+import { Button } from '@evoapi/design-system/button';
+import { Input } from '@evoapi/design-system/input';
+import { Label } from '@evoapi/design-system/label';
+import { Card } from '@evoapi/design-system/card';
+import { CardContent } from '@evoapi/design-system/card';
+import { CardHeader } from '@evoapi/design-system/card';
+import { CardTitle } from '@evoapi/design-system/card';
+import { Select } from '@evoapi/design-system/select';
+import { SelectContent } from '@evoapi/design-system/select';
+import { SelectItem } from '@evoapi/design-system/select';
+import { SelectTrigger } from '@evoapi/design-system/select';
+import { SelectValue } from '@evoapi/design-system/select';
+import { Textarea } from '@evoapi/design-system/textarea';
+import { Switch } from '@evoapi/design-system/switch';;
 import { Plus, X, Settings, Pencil, Check, Loader2 } from 'lucide-react';
 import { customAttributesService } from '@/services/customAttributes/customAttributesService';
 import { CustomAttributeDefinition, AttributeModel } from '@/types/settings';

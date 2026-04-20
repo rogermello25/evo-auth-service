@@ -1,17 +1,15 @@
 import React, { useState, useEffect, useCallback } from 'react';
 import { useLanguage } from '@/hooks/useLanguage';
-import {
-  Button,
-  Input,
-  Label,
-  Select,
-  SelectContent,
-  SelectItem,
-  SelectTrigger,
-  SelectValue,
-  Textarea,
-  Separator,
-} from '@evoapi/design-system';
+import { Button } from '@evoapi/design-system/button';
+import { Input } from '@evoapi/design-system/input';
+import { Label } from '@evoapi/design-system/label';
+import { Select } from '@evoapi/design-system/select';
+import { SelectContent } from '@evoapi/design-system/select';
+import { SelectItem } from '@evoapi/design-system/select';
+import { SelectTrigger } from '@evoapi/design-system/select';
+import { SelectValue } from '@evoapi/design-system/select';
+import { Textarea } from '@evoapi/design-system/textarea';
+import { Separator } from '@evoapi/design-system/separator';;
 import { Server, Settings, Wrench } from 'lucide-react';
 import { MCPServer, MCPServerFormData } from '@/types/ai';
 

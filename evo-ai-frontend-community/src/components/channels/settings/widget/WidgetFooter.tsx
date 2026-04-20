@@ -1,5 +1,7 @@
 import { useState } from 'react';
-import { Avatar, AvatarFallback, Input } from '@evoapi/design-system';
+import { Avatar } from '@evoapi/design-system/avatar';
+import { AvatarFallback } from '@evoapi/design-system/avatar';
+import { Input } from '@evoapi/design-system/input';;
 import { ArrowRight, Smile, Send } from 'lucide-react';
 import { WidgetConfig } from '../helpers/widgetHelpers';
 import { getReplyTimeDisplayText } from '../helpers/widgetHelpers';

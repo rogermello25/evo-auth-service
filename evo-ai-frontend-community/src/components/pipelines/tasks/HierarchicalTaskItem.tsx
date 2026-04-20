@@ -1,15 +1,13 @@
 import { useState } from 'react';
 import { useLanguage } from '@/hooks/useLanguage';
-import {
-  Badge,
-  Button,
-  Checkbox,
-  DropdownMenu,
-  DropdownMenuContent,
-  DropdownMenuItem,
-  DropdownMenuSeparator,
-  DropdownMenuTrigger,
-} from '@evoapi/design-system';
+import { Badge } from '@evoapi/design-system/badge';
+import { Button } from '@evoapi/design-system/button';
+import { Checkbox } from '@evoapi/design-system/checkbox';
+import { DropdownMenu } from '@evoapi/design-system/dropdown-menu';
+import { DropdownMenuContent } from '@evoapi/design-system/dropdown-menu';
+import { DropdownMenuItem } from '@evoapi/design-system/dropdown-menu';
+import { DropdownMenuSeparator } from '@evoapi/design-system/dropdown-menu';
+import { DropdownMenuTrigger } from '@evoapi/design-system/dropdown-menu';;
 import {
   ChevronRight,
   ChevronDown,

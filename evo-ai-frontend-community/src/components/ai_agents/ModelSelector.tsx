@@ -1,19 +1,16 @@
 import { useState, useMemo, useEffect } from 'react';
 import { useLanguage } from '@/hooks/useLanguage';
-import {
-  Label,
-  Button,
-  Badge,
-  Popover,
-  PopoverContent,
-  PopoverTrigger,
-  Command,
-  CommandEmpty,
-  CommandGroup,
-  CommandInput,
-  CommandItem,
-  Input,
-} from '@evoapi/design-system';
+import { Label } from '@evoapi/design-system/label';
+import { Button } from '@evoapi/design-system/button';
+import { Badge } from '@evoapi/design-system/badge';
+import { Popover } from '@evoapi/design-system/popover';
+import { Command } from '@evoapi/design-system/command';
+import { CommandEmpty } from '@evoapi/design-system/command';
+import { CommandGroup } from '@evoapi/design-system/command';
+import { CommandInput } from '@evoapi/design-system/command';
+import { CommandItem } from '@evoapi/design-system/command';
+import { Input } from '@evoapi/design-system/input';
+import { PopoverContent, PopoverTrigger } from '@evoapi/design-system';;
 import { Check, ChevronsUpDown, Loader2 } from 'lucide-react';
 import { ApiKey, ApiKeyModelInfo } from '@/types/agents';
 import { agentsService } from '@/services/agents/agentService';

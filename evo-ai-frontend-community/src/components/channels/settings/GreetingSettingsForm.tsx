@@ -1,4 +1,4 @@
-import { Switch } from '@evoapi/design-system';
+import { Switch } from '@evoapi/design-system/switch';;
 import { useLanguage } from '@/hooks/useLanguage';
 
 interface GreetingFormData {

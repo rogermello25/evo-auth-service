@@ -1,10 +1,8 @@
 import { useCallback } from 'react';
-import {
-  Button,
-  Card,
-  CardContent,
-  CardHeader,
-} from '@evoapi/design-system';
+import { Button } from '@evoapi/design-system/button';
+import { Card } from '@evoapi/design-system/card';
+import { CardContent } from '@evoapi/design-system/card';
+import { CardHeader } from '@evoapi/design-system/card';;
 import {
   FileText,
   Plus,

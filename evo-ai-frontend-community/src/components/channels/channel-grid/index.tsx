@@ -1,5 +1,5 @@
 import { useMemo, useState } from 'react';
-import { Input } from '@evoapi/design-system';
+import { Input } from '@evoapi/design-system/input';;
 import { Search } from 'lucide-react';
 import { useLanguage } from '@/hooks/useLanguage';
 import { ChannelCard } from './ChannelCard';

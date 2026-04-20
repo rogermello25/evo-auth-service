@@ -1,15 +1,13 @@
 import React, { useState } from 'react';
-import {
-  Dialog,
-  DialogContent,
-  DialogHeader,
-  DialogTitle,
-  Textarea,
-  Label,
-  Button,
-  Alert,
-  AlertDescription,
-} from '@evoapi/design-system';
+import { Dialog } from '@evoapi/design-system/dialog';
+import { DialogContent } from '@evoapi/design-system/dialog';
+import { DialogHeader } from '@evoapi/design-system/dialog';
+import { DialogTitle } from '@evoapi/design-system/dialog';
+import { Textarea } from '@evoapi/design-system/textarea';
+import { Label } from '@evoapi/design-system/label';
+import { Button } from '@evoapi/design-system/button';
+import { Alert } from '@evoapi/design-system/alert';
+import { AlertDescription } from '@evoapi/design-system';;
 import { toast } from 'sonner';
 import usersService from '@/services/users/usersService';
 import { Loader2, CheckCircle, XCircle, Mail } from 'lucide-react';

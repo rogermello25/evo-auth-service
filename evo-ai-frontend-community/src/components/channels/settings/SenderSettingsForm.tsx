@@ -1,5 +1,8 @@
 import React, { useState, useRef, useEffect } from 'react';
-import { Button, Input, Card, CardContent } from '@evoapi/design-system';
+import { Button } from '@evoapi/design-system/button';
+import { Input } from '@evoapi/design-system/input';
+import { Card } from '@evoapi/design-system/card';
+import { CardContent } from '@evoapi/design-system/card';;
 import { User, Building } from 'lucide-react';
 import { useLanguage } from '@/hooks/useLanguage';
 

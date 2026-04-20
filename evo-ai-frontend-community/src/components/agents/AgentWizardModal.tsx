@@ -1,6 +1,7 @@
 import { useState, useCallback, useEffect, useRef } from 'react';
 import { useLanguage } from '@/hooks/useLanguage';
-import { Dialog, DialogContent } from '@evoapi/design-system';
+import { Dialog } from '@evoapi/design-system/dialog';
+import { DialogContent } from '@evoapi/design-system/dialog';;
 import { X } from 'lucide-react';
 import { createAgent, listApiKeys } from '@/services/agents';
 import integrationService from '@/services/agents/integrationService';

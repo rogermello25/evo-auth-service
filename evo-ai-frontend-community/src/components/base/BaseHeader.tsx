@@ -1,14 +1,12 @@
 import React, { ReactNode } from 'react';
 import { useLanguage } from '@/hooks/useLanguage';
-import {
-  Button,
-  Input,
-  DropdownMenu,
-  DropdownMenuContent,
-  DropdownMenuItem,
-  DropdownMenuTrigger,
-  Badge,
-} from '@evoapi/design-system';
+import { Button } from '@evoapi/design-system/button';
+import { Input } from '@evoapi/design-system/input';
+import { DropdownMenu } from '@evoapi/design-system/dropdown-menu';
+import { DropdownMenuContent } from '@evoapi/design-system/dropdown-menu';
+import { DropdownMenuItem } from '@evoapi/design-system/dropdown-menu';
+import { DropdownMenuTrigger } from '@evoapi/design-system/dropdown-menu';
+import { Badge } from '@evoapi/design-system/badge';;
 import {
   Search,
   Filter,

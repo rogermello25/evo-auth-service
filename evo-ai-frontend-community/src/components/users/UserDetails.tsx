@@ -1,18 +1,16 @@
-import {
-  Dialog,
-  DialogContent,
-  DialogHeader,
-  DialogTitle,
-  Button,
-  Avatar,
-  AvatarFallback,
-  Badge,
-  Tabs,
-  TabsContent,
-  TabsList,
-  TabsTrigger,
-  Separator,
-} from '@evoapi/design-system';
+import { Dialog } from '@evoapi/design-system/dialog';
+import { DialogContent } from '@evoapi/design-system/dialog';
+import { DialogHeader } from '@evoapi/design-system/dialog';
+import { DialogTitle } from '@evoapi/design-system/dialog';
+import { Button } from '@evoapi/design-system/button';
+import { Avatar } from '@evoapi/design-system/avatar';
+import { AvatarFallback } from '@evoapi/design-system/avatar';
+import { Badge } from '@evoapi/design-system/badge';
+import { Tabs } from '@evoapi/design-system/tabs';
+import { TabsContent } from '@evoapi/design-system/tabs';
+import { TabsList } from '@evoapi/design-system/tabs';
+import { TabsTrigger } from '@evoapi/design-system/tabs';
+import { Separator } from '@evoapi/design-system/separator';;
 import {
   Edit,
   Mail,

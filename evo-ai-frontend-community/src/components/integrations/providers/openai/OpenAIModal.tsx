@@ -1,17 +1,15 @@
 import { useState, useEffect } from 'react';
 import { useLanguage } from '@/hooks/useLanguage';
-import {
-  Dialog,
-  DialogContent,
-  DialogDescription,
-  DialogHeader,
-  DialogTitle,
-  Button,
-  Input,
-  Card,
-  Switch,
-  Label
-} from '@evoapi/design-system';
+import { Dialog } from '@evoapi/design-system/dialog';
+import { DialogContent } from '@evoapi/design-system/dialog';
+import { DialogDescription } from '@evoapi/design-system/dialog';
+import { DialogHeader } from '@evoapi/design-system/dialog';
+import { DialogTitle } from '@evoapi/design-system/dialog';
+import { Button } from '@evoapi/design-system/button';
+import { Input } from '@evoapi/design-system/input';
+import { Card } from '@evoapi/design-system/card';
+import { Switch } from '@evoapi/design-system/switch';
+import { Label } from '@evoapi/design-system/label';;
 import { Brain, AlertCircle, ExternalLink } from 'lucide-react';
 import { OpenAIHook, OpenAIFormData, IntegrationHook } from '@/types/integrations';
 

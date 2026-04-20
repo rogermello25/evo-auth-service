@@ -1,16 +1,14 @@
 import React, { useState } from 'react';
 import { useLanguage } from '@/hooks/useLanguage';
-import {
-  Select,
-  SelectContent,
-  SelectItem,
-  SelectTrigger,
-  SelectValue,
-  Input,
-  Textarea,
-  Button,
-  Label,
-} from '@evoapi/design-system';
+import { Select } from '@evoapi/design-system/select';
+import { SelectContent } from '@evoapi/design-system/select';
+import { SelectItem } from '@evoapi/design-system/select';
+import { SelectTrigger } from '@evoapi/design-system/select';
+import { SelectValue } from '@evoapi/design-system/select';
+import { Input } from '@evoapi/design-system/input';
+import { Textarea } from '@evoapi/design-system/textarea';
+import { Button } from '@evoapi/design-system/button';
+import { Label } from '@evoapi/design-system/label';;
 import { Upload, X } from 'lucide-react';
 import { MACRO_ACTION_TYPES } from '@/types/automation';
 

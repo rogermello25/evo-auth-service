@@ -1,5 +1,8 @@
 import React, { useState } from 'react';
-import { Button, Card, CardContent, Badge } from '@evoapi/design-system';
+import { Button } from '@evoapi/design-system/button';
+import { Card } from '@evoapi/design-system/card';
+import { CardContent } from '@evoapi/design-system/card';
+import { Badge } from '@evoapi/design-system/badge';;
 import {
   AlertTriangle,
   RefreshCw,

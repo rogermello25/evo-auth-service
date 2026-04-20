@@ -1,36 +1,33 @@
 import { useState, useEffect, useRef } from 'react';
 import { useLanguage } from '@/hooks/useLanguage';
 import { useAccountUsers } from '@/hooks/useAccountUsers';
-import {
-  Dialog,
-  DialogContent,
-  DialogDescription,
-  DialogFooter,
-  DialogHeader,
-  DialogTitle,
-  Button,
-  Label,
-  Textarea,
-  Select,
-  SelectContent,
-  SelectItem,
-  SelectTrigger,
-  SelectValue,
-  Input,
-  Tabs,
-  TabsContent,
-  TabsList,
-  TabsTrigger,
-  Command,
-  CommandEmpty,
-  CommandGroup,
-  CommandInput,
-  CommandItem,
-  CommandList,
-  Popover,
-  PopoverContent,
-  PopoverTrigger,
-} from '@evoapi/design-system';
+import { Dialog } from '@evoapi/design-system/dialog';
+import { DialogContent } from '@evoapi/design-system/dialog';
+import { DialogDescription } from '@evoapi/design-system/dialog';
+import { DialogFooter } from '@evoapi/design-system/dialog';
+import { DialogHeader } from '@evoapi/design-system/dialog';
+import { DialogTitle } from '@evoapi/design-system/dialog';
+import { Button } from '@evoapi/design-system/button';
+import { Label } from '@evoapi/design-system/label';
+import { Textarea } from '@evoapi/design-system/textarea';
+import { Select } from '@evoapi/design-system/select';
+import { SelectContent } from '@evoapi/design-system/select';
+import { SelectItem } from '@evoapi/design-system/select';
+import { SelectTrigger } from '@evoapi/design-system/select';
+import { SelectValue } from '@evoapi/design-system/select';
+import { Input } from '@evoapi/design-system/input';
+import { Tabs } from '@evoapi/design-system/tabs';
+import { TabsContent } from '@evoapi/design-system/tabs';
+import { TabsList } from '@evoapi/design-system/tabs';
+import { TabsTrigger } from '@evoapi/design-system/tabs';
+import { Command } from '@evoapi/design-system/command';
+import { CommandEmpty } from '@evoapi/design-system/command';
+import { CommandGroup } from '@evoapi/design-system/command';
+import { CommandInput } from '@evoapi/design-system/command';
+import { CommandItem } from '@evoapi/design-system/command';
+import { CommandList } from '@evoapi/design-system/command';
+import { Popover } from '@evoapi/design-system/popover';
+import { PopoverContent, PopoverTrigger } from '@evoapi/design-system';;
 import { Plus, Trash2, ChevronsUpDown, Check } from 'lucide-react';
 import { PipelineItem, PipelineStage, Pipeline, PipelineTask, CreateTaskData, UpdateTaskData, PipelineServiceDefinition } from '@/types/analytics';
 import pipelineServiceDefinitionsService from '@/services/pipelines/pipelineServiceDefinitionsService';

@@ -1,6 +1,10 @@
 import { useState, useEffect } from 'react';
 import { useLanguage } from '@/hooks/useLanguage';
-import { Card, CardContent, CardHeader, CardTitle, Button } from '@evoapi/design-system';
+import { Card } from '@evoapi/design-system/card';
+import { CardContent } from '@evoapi/design-system/card';
+import { CardHeader } from '@evoapi/design-system/card';
+import { CardTitle } from '@evoapi/design-system/card';
+import { Button } from '@evoapi/design-system/button';;
 import { Activity, Clock, Filter, RefreshCw, ChevronDown, ChevronUp } from 'lucide-react';
 import { useContactEvents } from '@/hooks/useContactEvents';
 import ContactEventCard from './ContactEventCard';

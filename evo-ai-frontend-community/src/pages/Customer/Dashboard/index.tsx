@@ -1,6 +1,8 @@
 import { useCallback, useEffect, useMemo, useState } from 'react';
 import { AlertTriangle } from 'lucide-react';
-import { Badge, Card, CardContent } from '@evoapi/design-system';
+import { Badge } from '@evoapi/design-system/badge';
+import { Card } from '@evoapi/design-system/card';
+import { CardContent } from '@evoapi/design-system/card';;
 import { BaseHeader } from '@/components/base';
 import type { HeaderFilter } from '@/components/base';
 import { useLanguage } from '@/hooks/useLanguage';

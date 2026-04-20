@@ -1,5 +1,7 @@
 import { useLanguage } from '@/hooks/useLanguage';
-import { Button, Card, CardContent } from '@evoapi/design-system';
+import { Button } from '@evoapi/design-system/button';
+import { Card } from '@evoapi/design-system/card';
+import { CardContent } from '@evoapi/design-system/card';;
 import { Edit, MessageSquare, Trash2, Activity, Eye } from 'lucide-react';
 import { Contact } from '@/types/contacts';
 import ContactAvatar from '@/components/chat/contact/ContactAvatar';

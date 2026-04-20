@@ -1,13 +1,10 @@
 import { useMemo, useState } from 'react';
 import { useLanguage } from '@/hooks/useLanguage';
-import {
-  Button,
-  Checkbox,
-  Input,
-  Popover,
-  PopoverContent,
-  PopoverTrigger,
-} from '@evoapi/design-system';
+import { Button } from '@evoapi/design-system/button';
+import { Checkbox } from '@evoapi/design-system/checkbox';
+import { Input } from '@evoapi/design-system/input';
+import { Popover } from '@evoapi/design-system/popover';
+import { PopoverContent, PopoverTrigger } from '@evoapi/design-system';;
 import { ChevronDown, Tag } from 'lucide-react';
 import { Label } from '@/types/settings';
 

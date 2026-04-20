@@ -1,7 +1,8 @@
 import { useState, useMemo } from 'react';
 import { Link } from 'react-router-dom';
 
-import { Button, Input } from '@evoapi/design-system';
+import { Button } from '@evoapi/design-system/button';
+import { Input } from '@evoapi/design-system/input';;
 import { useNavigate } from 'react-router-dom';
 
 import { useForm, Controller } from 'react-hook-form';

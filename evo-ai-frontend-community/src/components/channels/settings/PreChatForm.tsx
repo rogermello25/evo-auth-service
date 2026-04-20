@@ -1,14 +1,12 @@
 import { useState, useEffect, useCallback } from 'react';
-import {
-  Card,
-  CardContent,
-  Button,
-  Switch,
-  Textarea,
-  Select,
-  SelectTrigger,
-  SelectValue,
-} from '@evoapi/design-system';
+import { Card } from '@evoapi/design-system/card';
+import { CardContent } from '@evoapi/design-system/card';
+import { Button } from '@evoapi/design-system/button';
+import { Switch } from '@evoapi/design-system/switch';
+import { Textarea } from '@evoapi/design-system/textarea';
+import { Select } from '@evoapi/design-system/select';
+import { SelectTrigger } from '@evoapi/design-system/select';
+import { SelectValue } from '@evoapi/design-system/select';;
 import { MessageSquare, Info, Settings, Eye } from 'lucide-react';
 import { toast } from 'sonner';
 

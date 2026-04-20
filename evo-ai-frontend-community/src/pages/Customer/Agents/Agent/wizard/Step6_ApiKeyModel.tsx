@@ -1,16 +1,14 @@
 import { useState, useCallback } from 'react';
-import {
-  Label,
-  Card,
-  CardContent,
-  Button,
-  Select,
-  SelectContent,
-  SelectItem,
-  SelectTrigger,
-  SelectValue,
-  Badge,
-} from '@evoapi/design-system';
+import { Label } from '@evoapi/design-system/label';
+import { Card } from '@evoapi/design-system/card';
+import { CardContent } from '@evoapi/design-system/card';
+import { Button } from '@evoapi/design-system/button';
+import { Select } from '@evoapi/design-system/select';
+import { SelectContent } from '@evoapi/design-system/select';
+import { SelectItem } from '@evoapi/design-system/select';
+import { SelectTrigger } from '@evoapi/design-system/select';
+import { SelectValue } from '@evoapi/design-system/select';
+import { Badge } from '@evoapi/design-system/badge';;
 import { ArrowRight, ArrowLeft, Key, Bot, Settings } from 'lucide-react';
 import { ApiKey } from '@/types/agents';
 import { useLanguage } from '@/hooks/useLanguage';

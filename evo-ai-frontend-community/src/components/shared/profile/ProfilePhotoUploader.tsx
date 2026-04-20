@@ -1,15 +1,13 @@
 import { useState, useRef, useEffect } from 'react';
-import {
-  Button,
-  Avatar,
-  AvatarFallback,
-  AvatarImage,
-  Dialog,
-  DialogContent,
-  DialogFooter,
-  DialogHeader,
-  DialogTitle,
-} from '@evoapi/design-system';
+import { Button } from '@evoapi/design-system/button';
+import { Avatar } from '@evoapi/design-system/avatar';
+import { AvatarFallback } from '@evoapi/design-system/avatar';
+import { AvatarImage } from '@evoapi/design-system/avatar';
+import { Dialog } from '@evoapi/design-system/dialog';
+import { DialogContent } from '@evoapi/design-system/dialog';
+import { DialogFooter } from '@evoapi/design-system/dialog';
+import { DialogHeader } from '@evoapi/design-system/dialog';
+import { DialogTitle } from '@evoapi/design-system/dialog';;
 import { Camera, Upload } from 'lucide-react';
 import { toast } from 'sonner';
 import { useLanguage } from '@/hooks/useLanguage';

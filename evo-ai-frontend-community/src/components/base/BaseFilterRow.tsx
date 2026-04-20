@@ -1,18 +1,15 @@
 import { useState } from 'react';
 import { useLanguage } from '@/hooks/useLanguage';
-import {
-  Select,
-  SelectContent,
-  SelectItem,
-  SelectTrigger,
-  SelectValue,
-  Input,
-  Calendar,
-  Popover,
-  PopoverContent,
-  PopoverTrigger,
-  Button,
-} from '@evoapi/design-system';
+import { Select } from '@evoapi/design-system/select';
+import { SelectContent } from '@evoapi/design-system/select';
+import { SelectItem } from '@evoapi/design-system/select';
+import { SelectTrigger } from '@evoapi/design-system/select';
+import { SelectValue } from '@evoapi/design-system/select';
+import { Input } from '@evoapi/design-system/input';
+import { Calendar } from '@evoapi/design-system/calendar';
+import { Popover } from '@evoapi/design-system/popover';
+import { Button } from '@evoapi/design-system/button';
+import { PopoverContent, PopoverTrigger } from '@evoapi/design-system';;
 import { CalendarIcon, X } from 'lucide-react';
 import { format } from 'date-fns';
 import { pt } from 'date-fns/locale';

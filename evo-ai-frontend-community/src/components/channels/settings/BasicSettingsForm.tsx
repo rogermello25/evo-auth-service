@@ -1,4 +1,5 @@
-import { Input, Button } from '@evoapi/design-system';
+import { Input } from '@evoapi/design-system/input';
+import { Button } from '@evoapi/design-system/button';;
 import { Upload, Trash2, Globe, Copy } from 'lucide-react';
 import { toast } from 'sonner';
 import { useLanguage } from '@/hooks/useLanguage';

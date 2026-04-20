@@ -1,6 +1,9 @@
 import React, { useState } from 'react';
 import { useLanguage } from '@/hooks/useLanguage';
-import { Card, CardContent, Badge, Button } from '@evoapi/design-system';
+import { Card } from '@evoapi/design-system/card';
+import { CardContent } from '@evoapi/design-system/card';
+import { Badge } from '@evoapi/design-system/badge';
+import { Button } from '@evoapi/design-system/button';;
 import {
   Clock,
   User,

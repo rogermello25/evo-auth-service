@@ -1,16 +1,14 @@
-import {
-  Label,
-  Select,
-  SelectContent,
-  SelectItem,
-  SelectTrigger,
-  SelectValue,
-  Card,
-  CardContent,
-  CardDescription,
-  CardHeader,
-  CardTitle,
-} from '@evoapi/design-system';
+import { Label } from '@evoapi/design-system/label';
+import { Select } from '@evoapi/design-system/select';
+import { SelectContent } from '@evoapi/design-system/select';
+import { SelectItem } from '@evoapi/design-system/select';
+import { SelectTrigger } from '@evoapi/design-system/select';
+import { SelectValue } from '@evoapi/design-system/select';
+import { Card } from '@evoapi/design-system/card';
+import { CardContent } from '@evoapi/design-system/card';
+import { CardDescription } from '@evoapi/design-system/card';
+import { CardHeader } from '@evoapi/design-system/card';
+import { CardTitle } from '@evoapi/design-system/card';;
 import { Plug } from 'lucide-react';
 import { useLanguage } from '@/hooks/useLanguage';
 

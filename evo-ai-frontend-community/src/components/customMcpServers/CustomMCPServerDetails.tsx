@@ -1,14 +1,12 @@
 import { useLanguage } from '@/hooks/useLanguage';
-import {
-  Dialog,
-  DialogContent,
-  DialogHeader,
-  DialogTitle,
-  ScrollArea,
-  Badge,
-  Button,
-  Separator,
-} from '@evoapi/design-system';
+import { Dialog } from '@evoapi/design-system/dialog';
+import { DialogContent } from '@evoapi/design-system/dialog';
+import { DialogHeader } from '@evoapi/design-system/dialog';
+import { DialogTitle } from '@evoapi/design-system/dialog';
+import { ScrollArea } from '@evoapi/design-system/scroll-area';
+import { Badge } from '@evoapi/design-system/badge';
+import { Button } from '@evoapi/design-system/button';
+import { Separator } from '@evoapi/design-system/separator';;
 import {
   TestTube,
   Edit,

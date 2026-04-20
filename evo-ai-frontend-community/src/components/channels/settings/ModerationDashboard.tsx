@@ -1,18 +1,16 @@
 import { useState, useEffect } from 'react';
-import {
-  Card,
-  CardContent,
-  Button,
-  Badge,
-  Select,
-  SelectContent,
-  SelectItem,
-  SelectTrigger,
-  SelectValue,
-  Skeleton,
-  Textarea,
-  Label,
-} from '@evoapi/design-system';
+import { Card } from '@evoapi/design-system/card';
+import { CardContent } from '@evoapi/design-system/card';
+import { Button } from '@evoapi/design-system/button';
+import { Badge } from '@evoapi/design-system/badge';
+import { Select } from '@evoapi/design-system/select';
+import { SelectContent } from '@evoapi/design-system/select';
+import { SelectItem } from '@evoapi/design-system/select';
+import { SelectTrigger } from '@evoapi/design-system/select';
+import { SelectValue } from '@evoapi/design-system/select';
+import { Skeleton } from '@evoapi/design-system/skeleton';
+import { Textarea } from '@evoapi/design-system/textarea';
+import { Label } from '@evoapi/design-system/label';;
 import {
   Shield,
   CheckCircle2,

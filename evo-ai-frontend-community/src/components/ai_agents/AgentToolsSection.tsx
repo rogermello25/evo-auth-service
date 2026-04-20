@@ -1,5 +1,6 @@
 import { useState, useCallback } from 'react';
-import { Button, Badge } from '@evoapi/design-system';
+import { Button } from '@evoapi/design-system/button';
+import { Badge } from '@evoapi/design-system/badge';;
 import { Users, Plus, X } from 'lucide-react';
 import AgentToolsDialog from './Dialogs/AgentToolsDialog';
 import { useLanguage } from '@/hooks/useLanguage';

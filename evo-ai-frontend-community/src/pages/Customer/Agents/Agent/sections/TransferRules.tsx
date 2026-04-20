@@ -1,16 +1,14 @@
 import { useLanguage } from '@/hooks/useLanguage';
-import {
-  Select,
-  SelectContent,
-  SelectItem,
-  SelectTrigger,
-  SelectValue,
-  Textarea,
-  Button,
-  Card,
-  CardContent,
-  Checkbox,
-} from '@evoapi/design-system';
+import { Select } from '@evoapi/design-system/select';
+import { SelectContent } from '@evoapi/design-system/select';
+import { SelectItem } from '@evoapi/design-system/select';
+import { SelectTrigger } from '@evoapi/design-system/select';
+import { SelectValue } from '@evoapi/design-system/select';
+import { Textarea } from '@evoapi/design-system/textarea';
+import { Button } from '@evoapi/design-system/button';
+import { Card } from '@evoapi/design-system/card';
+import { CardContent } from '@evoapi/design-system/card';
+import { Checkbox } from '@evoapi/design-system/checkbox';;
 import { UserRound, Trash2, Plus, Info } from 'lucide-react';
 
 export interface TransferRule {

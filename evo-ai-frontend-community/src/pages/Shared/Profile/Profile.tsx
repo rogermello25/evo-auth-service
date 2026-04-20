@@ -1,33 +1,31 @@
 import { useState, ChangeEvent, useEffect, useCallback } from 'react';
-import {
-  Button,
-  Tabs,
-  TabsContent,
-  TabsList,
-  TabsTrigger,
-  Input,
-  Label,
-  Separator,
-  Card,
-  CardContent,
-  CardDescription,
-  CardHeader,
-  CardTitle,
-  Dialog,
-  DialogContent,
-  DialogDescription,
-  DialogFooter,
-  DialogHeader,
-  DialogTitle,
-  Textarea,
-  Select,
-  SelectContent,
-  SelectItem,
-  SelectTrigger,
-  SelectValue,
-  Switch,
-  Checkbox,
-} from '@evoapi/design-system';
+import { Button } from '@evoapi/design-system/button';
+import { Tabs } from '@evoapi/design-system/tabs';
+import { TabsContent } from '@evoapi/design-system/tabs';
+import { TabsList } from '@evoapi/design-system/tabs';
+import { TabsTrigger } from '@evoapi/design-system/tabs';
+import { Input } from '@evoapi/design-system/input';
+import { Label } from '@evoapi/design-system/label';
+import { Separator } from '@evoapi/design-system/separator';
+import { Card } from '@evoapi/design-system/card';
+import { CardContent } from '@evoapi/design-system/card';
+import { CardDescription } from '@evoapi/design-system/card';
+import { CardHeader } from '@evoapi/design-system/card';
+import { CardTitle } from '@evoapi/design-system/card';
+import { Dialog } from '@evoapi/design-system/dialog';
+import { DialogContent } from '@evoapi/design-system/dialog';
+import { DialogDescription } from '@evoapi/design-system/dialog';
+import { DialogFooter } from '@evoapi/design-system/dialog';
+import { DialogHeader } from '@evoapi/design-system/dialog';
+import { DialogTitle } from '@evoapi/design-system/dialog';
+import { Textarea } from '@evoapi/design-system/textarea';
+import { Select } from '@evoapi/design-system/select';
+import { SelectContent } from '@evoapi/design-system/select';
+import { SelectItem } from '@evoapi/design-system/select';
+import { SelectTrigger } from '@evoapi/design-system/select';
+import { SelectValue } from '@evoapi/design-system/select';
+import { Switch } from '@evoapi/design-system/switch';
+import { Checkbox } from '@evoapi/design-system/checkbox';;
 import { AlertTriangle, Mail, Volume2, Bell, Keyboard, Play } from 'lucide-react';
 import { toast } from 'sonner';
 import { useAuth } from '@/contexts/AuthContext';

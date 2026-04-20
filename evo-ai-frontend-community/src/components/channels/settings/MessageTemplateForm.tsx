@@ -1,32 +1,30 @@
 import React, { useState, useEffect, useMemo, useCallback } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { toast } from 'sonner';
-import {
-  Button,
-  Input,
-  Select,
-  SelectContent,
-  SelectItem,
-  SelectTrigger,
-  SelectValue,
-  Badge,
-  Card,
-  CardContent,
-  Table,
-  TableBody,
-  TableCell,
-  TableHead,
-  TableHeader,
-  TableRow,
-  Dialog,
-  DialogContent,
-  DialogHeader,
-  DialogTitle,
-  DialogFooter,
-  Textarea,
-  Skeleton,
-  Switch,
-} from '@evoapi/design-system';
+import { Button } from '@evoapi/design-system/button';
+import { Input } from '@evoapi/design-system/input';
+import { Select } from '@evoapi/design-system/select';
+import { SelectContent } from '@evoapi/design-system/select';
+import { SelectItem } from '@evoapi/design-system/select';
+import { SelectTrigger } from '@evoapi/design-system/select';
+import { SelectValue } from '@evoapi/design-system/select';
+import { Badge } from '@evoapi/design-system/badge';
+import { Card } from '@evoapi/design-system/card';
+import { CardContent } from '@evoapi/design-system/card';
+import { Table } from '@evoapi/design-system/table';
+import { TableBody } from '@evoapi/design-system/table';
+import { TableCell } from '@evoapi/design-system/table';
+import { TableHead } from '@evoapi/design-system/table';
+import { TableHeader } from '@evoapi/design-system/table';
+import { TableRow } from '@evoapi/design-system/table';
+import { Dialog } from '@evoapi/design-system/dialog';
+import { DialogContent } from '@evoapi/design-system/dialog';
+import { DialogHeader } from '@evoapi/design-system/dialog';
+import { DialogTitle } from '@evoapi/design-system/dialog';
+import { DialogFooter } from '@evoapi/design-system/dialog';
+import { Textarea } from '@evoapi/design-system/textarea';
+import { Skeleton } from '@evoapi/design-system/skeleton';
+import { Switch } from '@evoapi/design-system/switch';;
 import { useLanguage } from '@/hooks/useLanguage';
 import {
   Plus,

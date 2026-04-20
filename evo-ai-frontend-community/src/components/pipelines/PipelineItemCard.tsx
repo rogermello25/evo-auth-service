@@ -1,5 +1,11 @@
 import { useLanguage } from '@/hooks/useLanguage';
-import { Button, Badge, DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuSeparator, DropdownMenuTrigger } from '@evoapi/design-system';
+import { Button } from '@evoapi/design-system/button';
+import { Badge } from '@evoapi/design-system/badge';
+import { DropdownMenu } from '@evoapi/design-system/dropdown-menu';
+import { DropdownMenuContent } from '@evoapi/design-system/dropdown-menu';
+import { DropdownMenuItem } from '@evoapi/design-system/dropdown-menu';
+import { DropdownMenuSeparator } from '@evoapi/design-system/dropdown-menu';
+import { DropdownMenuTrigger } from '@evoapi/design-system/dropdown-menu';;
 import { Edit, Trash2, MoreVertical, Phone, Mail, MessageSquare, User, Clock, AlertCircle, ListTodo, CheckCircle2, GripVertical, GitBranch } from 'lucide-react';
 import { PipelineItem, Pipeline, PipelineStage } from '@/types/analytics';
 

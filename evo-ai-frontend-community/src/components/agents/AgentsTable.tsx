@@ -1,4 +1,5 @@
-import { Badge, Button } from '@evoapi/design-system';
+import { Badge } from '@evoapi/design-system/badge';
+import { Button } from '@evoapi/design-system/button';;
 import { Bot, ExternalLink, ArrowRight, GitBranch, RefreshCw, MoreHorizontal } from 'lucide-react';
 import { Agent } from '@/types/agents';
 import { BaseTable, TableColumn } from '@/components/base';

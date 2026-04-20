@@ -2,13 +2,11 @@ import React from 'react';
 import { useLanguage } from '@/hooks/useLanguage';
 import { Link, useLocation } from 'react-router-dom';
 import { X } from 'lucide-react';
-import {
-  Button,
-  TooltipProvider,
-  Tooltip,
-  TooltipContent,
-  TooltipTrigger,
-} from '@evoapi/design-system';
+import { Button } from '@evoapi/design-system/button';
+import { Tooltip } from '@evoapi/design-system/tooltip';
+import { TooltipContent } from '@evoapi/design-system/tooltip';
+import { TooltipTrigger } from '@evoapi/design-system/tooltip';
+import { TooltipProvider } from '@evoapi/design-system';;
 import MenuItem from './MenuItem';
 import { MenuItem as MenuItemType } from '../config/menuItems';
 

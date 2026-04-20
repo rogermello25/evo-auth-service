@@ -1,17 +1,15 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
-import {
-  Button,
-  Avatar,
-  AvatarFallback,
-  AvatarImage,
-  DropdownMenu,
-  DropdownMenuContent,
-  DropdownMenuItem,
-  DropdownMenuSeparator,
-  DropdownMenuTrigger,
-  DropdownMenuLabel
-} from '@evoapi/design-system';
+import { Button } from '@evoapi/design-system/button';
+import { Avatar } from '@evoapi/design-system/avatar';
+import { AvatarFallback } from '@evoapi/design-system/avatar';
+import { AvatarImage } from '@evoapi/design-system/avatar';
+import { DropdownMenu } from '@evoapi/design-system/dropdown-menu';
+import { DropdownMenuContent } from '@evoapi/design-system/dropdown-menu';
+import { DropdownMenuItem } from '@evoapi/design-system/dropdown-menu';
+import { DropdownMenuSeparator } from '@evoapi/design-system/dropdown-menu';
+import { DropdownMenuTrigger } from '@evoapi/design-system/dropdown-menu';
+import { DropdownMenuLabel } from '@evoapi/design-system/dropdown-menu';;
 import { useLanguage } from '@/hooks/useLanguage';
 import { getProfileMenuItems } from '../config/menuItems';
 import { Role } from '@/types/auth';

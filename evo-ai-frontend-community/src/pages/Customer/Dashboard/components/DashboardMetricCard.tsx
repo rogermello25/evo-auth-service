@@ -1,5 +1,9 @@
 import type { LucideIcon } from 'lucide-react';
-import { Badge, Card, CardContent, CardHeader, CardTitle } from '@evoapi/design-system';
+import { Badge } from '@evoapi/design-system/badge';
+import { Card } from '@evoapi/design-system/card';
+import { CardContent } from '@evoapi/design-system/card';
+import { CardHeader } from '@evoapi/design-system/card';
+import { CardTitle } from '@evoapi/design-system/card';;
 import { TooltipInfo } from '@/components/base/TooltipInfo';
 
 type CardTone = 'good' | 'warning' | 'critical' | 'neutral';

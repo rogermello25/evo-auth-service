@@ -1,5 +1,6 @@
 import { useLanguage } from '@/hooks/useLanguage';
-import { Badge, Button } from '@evoapi/design-system';
+import { Badge } from '@evoapi/design-system/badge';
+import { Button } from '@evoapi/design-system/button';;
 import { Edit, Trash2, Wand, Loader2, Globe } from 'lucide-react';
 import { CustomTool } from '@/types/ai';
 import { BaseTable, TableColumn, TableAction } from '@/components/base';

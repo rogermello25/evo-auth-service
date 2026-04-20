@@ -1,7 +1,9 @@
 import { useState, useEffect } from 'react';
 import { useSearchParams, useNavigate } from 'react-router-dom';
 import { useLanguage } from '@/hooks/useLanguage';
-import { Button, Alert, AlertDescription } from '@evoapi/design-system';
+import { Button } from '@evoapi/design-system/button';
+import { Alert } from '@evoapi/design-system/alert';
+import { AlertDescription } from '@evoapi/design-system';;
 import { CheckCircle, XCircle, Mail, Loader2 } from 'lucide-react';
 import { toast } from 'sonner';
 import { confirmEmail, resendConfirmation } from '@/services/auth/authService';

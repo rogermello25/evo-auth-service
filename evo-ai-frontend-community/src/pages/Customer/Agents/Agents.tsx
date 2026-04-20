@@ -1,6 +1,12 @@
 import { useState, useEffect, useCallback, useRef } from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
-import { Button, Dialog, DialogContent, DialogDescription, DialogFooter, DialogHeader, DialogTitle } from '@evoapi/design-system';
+import { Button } from '@evoapi/design-system/button';
+import { Dialog } from '@evoapi/design-system/dialog';
+import { DialogContent } from '@evoapi/design-system/dialog';
+import { DialogDescription } from '@evoapi/design-system/dialog';
+import { DialogFooter } from '@evoapi/design-system/dialog';
+import { DialogHeader } from '@evoapi/design-system/dialog';
+import { DialogTitle } from '@evoapi/design-system/dialog';;
 import { AgentsTable, AgentsHeader, AgentsPagination, AgentCard as AgentCardItem, AgentWizardModal } from '@/components/agents';
 import { EmptyState } from '@/components/base';
 import { Bot, Search, Grid3X3, List } from 'lucide-react';

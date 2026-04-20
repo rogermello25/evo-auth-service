@@ -1,15 +1,13 @@
 import { useState } from 'react';
-import {
-  Dialog,
-  DialogContent,
-  DialogDescription,
-  DialogHeader,
-  DialogTitle,
-  Button,
-  Input,
-} from '@evoapi/design-system';
+import { Dialog } from '@evoapi/design-system/dialog';
+import { DialogContent } from '@evoapi/design-system/dialog';
+import { DialogDescription } from '@evoapi/design-system/dialog';
+import { DialogHeader } from '@evoapi/design-system/dialog';
+import { DialogTitle } from '@evoapi/design-system/dialog';
+import { Button } from '@evoapi/design-system/button';
+import { Input } from '@evoapi/design-system/input';;
 import { Copy, Eye, EyeOff, Key } from 'lucide-react';
-import { Badge } from '@evoapi/design-system';
+import { Badge } from '@evoapi/design-system/badge';;
 import type { AccessToken } from '@/types/auth';
 import { useTranslation } from '@/hooks/useTranslation';
 import { parseScopesFromAPI } from '@/services/auth/accessTokensService';

@@ -7,18 +7,16 @@ import {
   ChevronDown,
   ChevronRight,
 } from 'lucide-react';
-import {
-  Button,
-  Sheet,
-  SheetContent,
-  SheetHeader,
-  SheetTitle,
-  SheetTrigger,
-  Tooltip,
-  TooltipContent,
-  TooltipTrigger,
-  ScrollArea,
-} from '@evoapi/design-system';
+import { Button } from '@evoapi/design-system/button';
+import { Sheet } from '@evoapi/design-system/sheet';
+import { SheetContent } from '@evoapi/design-system/sheet';
+import { SheetHeader } from '@evoapi/design-system/sheet';
+import { SheetTitle } from '@evoapi/design-system/sheet';
+import { Tooltip } from '@evoapi/design-system/tooltip';
+import { TooltipContent } from '@evoapi/design-system/tooltip';
+import { TooltipTrigger } from '@evoapi/design-system/tooltip';
+import { ScrollArea } from '@evoapi/design-system/scroll-area';
+import { SheetTrigger } from '@evoapi/design-system';;
 import { useLanguage } from '../../../hooks/useLanguage';
 import NotificationBell from '../NotificationBell';
 import ProfileMenu from './ProfileMenu';

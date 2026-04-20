@@ -1,5 +1,8 @@
 import { GitBranch } from 'lucide-react';
-import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from '@evoapi/design-system';
+import { Tooltip } from '@evoapi/design-system/tooltip';
+import { TooltipContent } from '@evoapi/design-system/tooltip';
+import { TooltipTrigger } from '@evoapi/design-system/tooltip';
+import { TooltipProvider } from '@evoapi/design-system';;
 import { Contact } from '@/types/contacts';
 import { useLanguage } from '@/hooks/useLanguage';
 

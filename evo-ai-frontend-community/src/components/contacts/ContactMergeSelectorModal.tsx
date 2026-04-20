@@ -1,19 +1,17 @@
 import { useState, useEffect, useCallback } from 'react';
 import { useLanguage } from '@/hooks/useLanguage';
-import {
-  Dialog,
-  DialogContent,
-  DialogDescription,
-  DialogFooter,
-  DialogHeader,
-  DialogTitle,
-  Button,
-  Input,
-  ScrollArea,
-  Avatar,
-  AvatarImage,
-  AvatarFallback,
-} from '@evoapi/design-system';
+import { Dialog } from '@evoapi/design-system/dialog';
+import { DialogContent } from '@evoapi/design-system/dialog';
+import { DialogDescription } from '@evoapi/design-system/dialog';
+import { DialogFooter } from '@evoapi/design-system/dialog';
+import { DialogHeader } from '@evoapi/design-system/dialog';
+import { DialogTitle } from '@evoapi/design-system/dialog';
+import { Button } from '@evoapi/design-system/button';
+import { Input } from '@evoapi/design-system/input';
+import { ScrollArea } from '@evoapi/design-system/scroll-area';
+import { Avatar } from '@evoapi/design-system/avatar';
+import { AvatarImage } from '@evoapi/design-system/avatar';
+import { AvatarFallback } from '@evoapi/design-system/avatar';;
 import { Contact } from '@/types/contacts';
 import { contactsService } from '@/services/contacts/contactsService';
 import { Search, Mail, Phone, Building2, User, Loader2 } from 'lucide-react';

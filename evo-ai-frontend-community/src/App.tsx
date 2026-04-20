@@ -8,7 +8,7 @@ import { NotificationsProvider } from './contexts/NotificationsContext';
 import { PermissionsProvider } from './contexts/PermissionsContext';
 import { UISettingsApplier } from './components/UISettingsApplier';
 
-import { Toaster } from '@evoapi/design-system';
+import { Toaster } from '@evoapi/design-system/sonner';;
 
 import { useIsDarkClass } from '@/hooks/chat/useIsDarkClass';
 

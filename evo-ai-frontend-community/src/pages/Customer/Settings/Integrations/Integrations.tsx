@@ -2,16 +2,14 @@ import { useState, useEffect, useCallback, useRef } from 'react';
 import { useLanguage } from '@/hooks/useLanguage';
 import { useNavigate } from 'react-router-dom';
 import { SettingsIntegrationsTour } from '@/tours';
-import {
-  Card,
-  Badge,
-  Input,
-  Tabs,
-  TabsContent,
-  TabsList,
-  TabsTrigger,
-  Skeleton,
-} from '@evoapi/design-system';
+import { Card } from '@evoapi/design-system/card';
+import { Badge } from '@evoapi/design-system/badge';
+import { Input } from '@evoapi/design-system/input';
+import { Tabs } from '@evoapi/design-system/tabs';
+import { TabsContent } from '@evoapi/design-system/tabs';
+import { TabsList } from '@evoapi/design-system/tabs';
+import { TabsTrigger } from '@evoapi/design-system/tabs';
+import { Skeleton } from '@evoapi/design-system/skeleton';;
 import { Search, Puzzle, Grid3X3 } from 'lucide-react';
 import EmptyState from '@/components/base/EmptyState';
 import BaseHeader from '@/components/base/BaseHeader';

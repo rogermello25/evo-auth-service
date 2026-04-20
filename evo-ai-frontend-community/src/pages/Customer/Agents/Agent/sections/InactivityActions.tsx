@@ -1,15 +1,12 @@
 import { useLanguage } from '@/hooks/useLanguage';
-import {
-  Select,
-  SelectContent,
-  SelectItem,
-  SelectTrigger,
-  SelectValue,
-  Textarea,
-  Button,
-  Card,
-  CardContent,
-} from '@evoapi/design-system';
+import { Select } from '@evoapi/design-system/select';
+import { SelectContent } from '@evoapi/design-system/select';
+import { SelectItem } from '@evoapi/design-system/select';
+import { SelectTrigger } from '@evoapi/design-system/select';
+import { SelectValue } from '@evoapi/design-system/select';
+import { Textarea } from '@evoapi/design-system/textarea';
+import { Button } from '@evoapi/design-system/button';
+import { Card, CardContent } from '@evoapi/design-system/card';
 import { Clock, Trash2, Plus, Info } from 'lucide-react';
 
 export interface InactivityAction {
@@ -45,7 +42,20 @@ const InactivityActions = ({ actions, onChange }: InactivityActionsProps) => {
     onChange(actions.filter(action => action.id !== id));
   };
 
-  const minuteOptions = [2, 5, 10, 15, 30, 60];
+  const timeOptions = [
+    { value: 2, label: '2 min' },
+    { value: 5, label: '5 min' },
+    { value: 10, label: '10 min' },
+    { value: 15, label: '15 min' },
+    { value: 30, label: '30 min' },
+    { value: 60, label: '1 hora' },
+    { value: 120, label: '2 horas' },
+    { value: 360, label: '6 horas' },
+    { value: 720, label: '12 horas' },
+    { value: 1440, label: '1 dia' },
+    { value: 2880, label: '2 dias' },
+    { value: 10080, label: '7 dias' },
+  ];
 
   return (
     <div className="space-y-6">
@@ -83,10 +93,9 @@ const InactivityActions = ({ actions, onChange }: InactivityActionsProps) => {
                           <SelectValue />
                         </SelectTrigger>
                         <SelectContent>
-                          {minuteOptions.map(min => (
-                            <SelectItem key={min} value={min.toString()}>
-                              {min}{' '}
-                              {t('edit.configuration.inactivityActions.minutes') || 'minutos'}
+                          {timeOptions.map(opt => (
+                            <SelectItem key={opt.value} value={opt.value.toString()}>
+                              {opt.label}
                             </SelectItem>
                           ))}
                         </SelectContent>

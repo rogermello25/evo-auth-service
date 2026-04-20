@@ -1,16 +1,14 @@
 import { useState, useEffect, useCallback } from 'react';
-import {
-  Button,
-  Badge,
-  Card,
-  CardContent,
-  CardHeader,
-  CardTitle,
-  CardDescription,
-  Input,
-  Label,
-  ScrollArea,
-} from '@evoapi/design-system';
+import { Button } from '@evoapi/design-system/button';
+import { Badge } from '@evoapi/design-system/badge';
+import { Card } from '@evoapi/design-system/card';
+import { CardContent } from '@evoapi/design-system/card';
+import { CardHeader } from '@evoapi/design-system/card';
+import { CardTitle } from '@evoapi/design-system/card';
+import { CardDescription } from '@evoapi/design-system/card';
+import { Input } from '@evoapi/design-system/input';
+import { Label } from '@evoapi/design-system/label';
+import { ScrollArea } from '@evoapi/design-system/scroll-area';;
 import { Search, X, Users, Plus, Check, Loader2 } from 'lucide-react';
 import { listAgents } from '@/services/agents';
 import { useLanguage } from '@/hooks/useLanguage';

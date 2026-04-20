@@ -1,4 +1,5 @@
-import { Label, Switch } from '@evoapi/design-system';
+import { Label } from '@evoapi/design-system/label';
+import { Switch } from '@evoapi/design-system/switch';;
 
 interface FormSwitchProps {
   id: string;

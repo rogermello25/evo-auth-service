@@ -1,18 +1,15 @@
 import { useState } from 'react';
 import { useLanguage } from '@/hooks/useLanguage';
-import {
-  Button,
-  Badge,
-  Command,
-  CommandEmpty,
-  CommandGroup,
-  CommandInput,
-  CommandItem,
-  CommandList,
-  Popover,
-  PopoverContent,
-  PopoverTrigger,
-} from '@evoapi/design-system';
+import { Button } from '@evoapi/design-system/button';
+import { Badge } from '@evoapi/design-system/badge';
+import { Command } from '@evoapi/design-system/command';
+import { CommandEmpty } from '@evoapi/design-system/command';
+import { CommandGroup } from '@evoapi/design-system/command';
+import { CommandInput } from '@evoapi/design-system/command';
+import { CommandItem } from '@evoapi/design-system/command';
+import { CommandList } from '@evoapi/design-system/command';
+import { Popover } from '@evoapi/design-system/popover';
+import { PopoverContent, PopoverTrigger } from '@evoapi/design-system';;
 import {
   Plus,
   X,

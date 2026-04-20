@@ -1,4 +1,6 @@
-import { Avatar, AvatarFallback, Badge } from '@evoapi/design-system';
+import { Avatar } from '@evoapi/design-system/avatar';
+import { AvatarFallback } from '@evoapi/design-system/avatar';
+import { Badge } from '@evoapi/design-system/badge';;
 import { Users, Edit, Trash2 } from 'lucide-react';
 import { Team } from '@/types/users';
 import { BaseTable, TableColumn, TableAction } from '@/components/base';

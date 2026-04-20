@@ -7,7 +7,9 @@ import { BaseNodePanel, type NodeType, type NodeCategory } from './BaseNodePanel
 
 // Re-exportar os tipos para facilitar o uso
 export type { NodeType, NodeCategory };
-import { Button, Card, CardContent } from '@evoapi/design-system';
+import { Button } from '@evoapi/design-system/button';
+import { Card } from '@evoapi/design-system/card';
+import { CardContent } from '@evoapi/design-system/card';;
 import { Save, Play, Pause, RotateCcw, AlertCircle } from 'lucide-react';
 import { cn } from '@/lib/utils';
 

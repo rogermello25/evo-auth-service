@@ -1,21 +1,19 @@
 import { useState, useEffect, useCallback } from 'react';
-import {
-  Label,
-  Textarea,
-  Input,
-  Card,
-  CardContent,
-  CardHeader,
-  CardTitle,
-  CardDescription,
-  Select,
-  SelectContent,
-  SelectItem,
-  SelectTrigger,
-  SelectValue,
-  Badge,
-  Button,
-} from '@evoapi/design-system';
+import { Label } from '@evoapi/design-system/label';
+import { Textarea } from '@evoapi/design-system/textarea';
+import { Input } from '@evoapi/design-system/input';
+import { Card } from '@evoapi/design-system/card';
+import { CardContent } from '@evoapi/design-system/card';
+import { CardHeader } from '@evoapi/design-system/card';
+import { CardTitle } from '@evoapi/design-system/card';
+import { CardDescription } from '@evoapi/design-system/card';
+import { Select } from '@evoapi/design-system/select';
+import { SelectContent } from '@evoapi/design-system/select';
+import { SelectItem } from '@evoapi/design-system/select';
+import { SelectTrigger } from '@evoapi/design-system/select';
+import { SelectValue } from '@evoapi/design-system/select';
+import { Badge } from '@evoapi/design-system/badge';
+import { Button } from '@evoapi/design-system/button';;
 import { Bot, Key, MessageSquare, Settings } from 'lucide-react';
 import { ApiKey } from '@/types/agents';
 import { ApiKeysModal } from '@/components/ApiKeysModal';

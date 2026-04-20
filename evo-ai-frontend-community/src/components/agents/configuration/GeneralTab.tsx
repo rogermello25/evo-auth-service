@@ -3,18 +3,16 @@ import { useLanguage } from '@/hooks/useLanguage';
 import { LLMConfigData } from '@/components/ai_agents/Forms/LLMConfigForm';
 import A2AConfigForm, { A2AConfigData } from '@/components/ai_agents/Forms/A2AConfigForm';
 import TaskConfigForm, { TaskConfigData } from '@/components/ai_agents/Forms/TaskConfigForm';
-import {
-  Switch,
-  Label,
-  Input,
-  Button,
-  Badge,
-  Select,
-  SelectContent,
-  SelectItem,
-  SelectTrigger,
-  SelectValue,
-} from '@evoapi/design-system';
+import { Switch } from '@evoapi/design-system/switch';
+import { Label } from '@evoapi/design-system/label';
+import { Input } from '@evoapi/design-system/input';
+import { Button } from '@evoapi/design-system/button';
+import { Badge } from '@evoapi/design-system/badge';
+import { Select } from '@evoapi/design-system/select';
+import { SelectContent } from '@evoapi/design-system/select';
+import { SelectItem } from '@evoapi/design-system/select';
+import { SelectTrigger } from '@evoapi/design-system/select';
+import { SelectValue } from '@evoapi/design-system/select';;
 import { ApiKey, Agent } from '@/types/agents';
 import { Key, Brain, FileText, Settings, Zap, Plus, Plug } from 'lucide-react';
 import { ApiKeysModal } from '@/components/ApiKeysModal';

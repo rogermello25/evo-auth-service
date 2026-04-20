@@ -6,18 +6,16 @@ import { useNavigate } from 'react-router-dom';
 import { toast } from 'sonner';
 import { AlertCircle, Globe } from 'lucide-react';
 
-import {
-  Button,
-  Input,
-  Label,
-  Alert,
-  AlertDescription,
-  Select,
-  SelectContent,
-  SelectItem,
-  SelectTrigger,
-  SelectValue,
-} from '@evoapi/design-system';
+import { Button } from '@evoapi/design-system/button';
+import { Input } from '@evoapi/design-system/input';
+import { Label } from '@evoapi/design-system/label';
+import { Alert } from '@evoapi/design-system/alert';
+import { Select } from '@evoapi/design-system/select';
+import { SelectContent } from '@evoapi/design-system/select';
+import { SelectItem } from '@evoapi/design-system/select';
+import { SelectTrigger } from '@evoapi/design-system/select';
+import { SelectValue } from '@evoapi/design-system/select';
+import { AlertDescription } from '@evoapi/design-system';;
 
 import { useLanguage } from '@/hooks/useLanguage';
 import { type Locale } from '@/i18n/config';

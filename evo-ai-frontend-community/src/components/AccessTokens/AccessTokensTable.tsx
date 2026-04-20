@@ -1,5 +1,5 @@
 import { Edit, Trash2, Eye, Key, Copy } from 'lucide-react';
-import { Badge } from '@evoapi/design-system';
+import { Badge } from '@evoapi/design-system/badge';;
 import BaseTable from '@/components/base/BaseTable';
 import type { AccessToken } from '@/types/auth';
 import { useUserPermissions } from '@/hooks/useUserPermissions';

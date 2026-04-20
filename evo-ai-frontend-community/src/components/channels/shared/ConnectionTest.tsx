@@ -1,4 +1,4 @@
-import { Button } from '@evoapi/design-system';
+import { Button } from '@evoapi/design-system/button';;
 import { useLanguage } from '@/hooks/useLanguage';
 
 interface ConnectionTestProps {

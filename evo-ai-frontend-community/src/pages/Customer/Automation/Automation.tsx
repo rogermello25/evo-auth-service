@@ -2,7 +2,12 @@ import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { automationService } from "@/services/automation/automationService";
 import type { AutomationRule } from "@/types/automation";
-import { Button, Card, CardContent, Input, Badge, Skeleton } from "@evoapi/design-system";
+import { Button } from '@evoapi/design-system/button';
+import { Card } from '@evoapi/design-system/card';
+import { CardContent } from '@evoapi/design-system/card';
+import { Input } from '@evoapi/design-system/input';
+import { Badge } from '@evoapi/design-system/badge';
+import { Skeleton } from '@evoapi/design-system/skeleton';;
 import { Plus, Trash2, Power, PowerOff } from "lucide-react";
 
 const Automation: React.FC = () => {

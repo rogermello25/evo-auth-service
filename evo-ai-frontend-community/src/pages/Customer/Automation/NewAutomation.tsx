@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
 import { toast } from 'sonner';
-import { Button } from '@evoapi/design-system';
+import { Button } from '@evoapi/design-system/button';;
 import { ArrowLeft, Save, X, Plus, Trash2, GripVertical, Settings } from 'lucide-react';
 import { automationService } from '@/services/automation/automationService';
 import type {

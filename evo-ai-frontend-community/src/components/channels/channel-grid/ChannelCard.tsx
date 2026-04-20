@@ -1,11 +1,9 @@
-import {
-  Card,
-  CardContent,
-  Tooltip,
-  TooltipContent,
-  TooltipProvider,
-  TooltipTrigger,
-} from '@evoapi/design-system';
+import { Card } from '@evoapi/design-system/card';
+import { CardContent } from '@evoapi/design-system/card';
+import { Tooltip } from '@evoapi/design-system/tooltip';
+import { TooltipContent } from '@evoapi/design-system/tooltip';
+import { TooltipTrigger } from '@evoapi/design-system/tooltip';
+import { TooltipProvider } from '@evoapi/design-system';;
 import { ChannelIcon } from '@/components/channels';
 import { ChannelType } from '@/hooks/channels/useChannelForm';
 

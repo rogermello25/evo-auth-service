@@ -1,12 +1,10 @@
 import { useState, useEffect } from 'react';
 import { useLanguage } from '@/hooks/useLanguage';
-import {
-  Button,
-  Input,
-  Label,
-  Alert,
-  AlertDescription,
-} from '@evoapi/design-system';
+import { Button } from '@evoapi/design-system/button';
+import { Input } from '@evoapi/design-system/input';
+import { Label } from '@evoapi/design-system/label';
+import { Alert } from '@evoapi/design-system/alert';
+import { AlertDescription } from '@evoapi/design-system';;
 import { Shield, Smartphone, Mail, RefreshCw, ArrowLeft } from 'lucide-react';
 import { toast } from 'sonner';
 

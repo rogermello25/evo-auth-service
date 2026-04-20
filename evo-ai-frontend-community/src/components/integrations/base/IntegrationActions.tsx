@@ -1,5 +1,9 @@
 import { useLanguage } from '@/hooks/useLanguage';
-import { Button, DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger } from '@evoapi/design-system';
+import { Button } from '@evoapi/design-system/button';
+import { DropdownMenu } from '@evoapi/design-system/dropdown-menu';
+import { DropdownMenuContent } from '@evoapi/design-system/dropdown-menu';
+import { DropdownMenuItem } from '@evoapi/design-system/dropdown-menu';
+import { DropdownMenuTrigger } from '@evoapi/design-system/dropdown-menu';;
 import { Settings, Power, MoreVertical, Trash2, RefreshCw, ExternalLink } from 'lucide-react';
 import { Integration } from '@/types/integrations';
 

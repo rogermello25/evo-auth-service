@@ -1,25 +1,23 @@
 import { useState } from 'react';
-import {
-  Card,
-  CardContent,
-  CardDescription,
-  CardHeader,
-  CardTitle,
-  Button,
-  Input,
-  Label,
-  Dialog,
-  DialogContent,
-  DialogDescription,
-  DialogFooter,
-  DialogHeader,
-  DialogTitle,
-  Alert,
-  AlertDescription,
-  RadioGroup,
-  RadioGroupItem,
-  Badge,
-} from '@evoapi/design-system';
+import { Card } from '@evoapi/design-system/card';
+import { CardContent } from '@evoapi/design-system/card';
+import { CardDescription } from '@evoapi/design-system/card';
+import { CardHeader } from '@evoapi/design-system/card';
+import { CardTitle } from '@evoapi/design-system/card';
+import { Button } from '@evoapi/design-system/button';
+import { Input } from '@evoapi/design-system/input';
+import { Label } from '@evoapi/design-system/label';
+import { Dialog } from '@evoapi/design-system/dialog';
+import { DialogContent } from '@evoapi/design-system/dialog';
+import { DialogDescription } from '@evoapi/design-system/dialog';
+import { DialogFooter } from '@evoapi/design-system/dialog';
+import { DialogHeader } from '@evoapi/design-system/dialog';
+import { DialogTitle } from '@evoapi/design-system/dialog';
+import { Alert } from '@evoapi/design-system/alert';
+import { RadioGroup } from '@evoapi/design-system/radio-group';
+import { RadioGroupItem } from '@evoapi/design-system/radio-group';
+import { Badge } from '@evoapi/design-system/badge';
+import { AlertDescription } from '@evoapi/design-system';;
 import { Shield, Smartphone, Mail, AlertTriangle, Check, Copy, RefreshCw } from 'lucide-react';
 import { toast } from 'sonner';
 import { twoFactorService } from '@/services/profile/twoFactorService';

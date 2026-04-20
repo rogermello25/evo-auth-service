@@ -1,16 +1,14 @@
 import { useState, useEffect, useMemo } from 'react';
-import {
-  Dialog,
-  DialogContent,
-  DialogDescription,
-  DialogFooter,
-  DialogHeader,
-  DialogTitle,
-  Button,
-  Badge,
-  Input,
-  ScrollArea,
-} from '@evoapi/design-system';
+import { Dialog } from '@evoapi/design-system/dialog';
+import { DialogContent } from '@evoapi/design-system/dialog';
+import { DialogDescription } from '@evoapi/design-system/dialog';
+import { DialogFooter } from '@evoapi/design-system/dialog';
+import { DialogHeader } from '@evoapi/design-system/dialog';
+import { DialogTitle } from '@evoapi/design-system/dialog';
+import { Button } from '@evoapi/design-system/button';
+import { Badge } from '@evoapi/design-system/badge';
+import { Input } from '@evoapi/design-system/input';
+import { ScrollArea } from '@evoapi/design-system/scroll-area';;
 import { Search, BookOpen, CheckCircle, Loader2 } from 'lucide-react';
 import { KnowledgeBase } from '@/types/knowledge/knowledge';
 import { knowledgeService } from '@/services/knowledge/knowledgeService';

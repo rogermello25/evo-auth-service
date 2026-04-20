@@ -10,10 +10,16 @@ export default defineConfig({
     tailwindcss(),
   ],
   build: {
-    // Reduce chunking to minimize requests via ngrok
+    chunkSizeWarningLimit: 600,
     rollupOptions: {
       output: {
-        manualChunks: undefined, // Disable auto chunking
+        manualChunks: (id) => {
+          // Only split the design system into its own chunk
+          // All other vendor code stays in the main bundle to avoid load order issues
+          if (id.includes('node_modules') && id.includes('@evoapi/design-system')) {
+            return 'vendor-ui';
+          }
+        },
       },
     },
   },
@@ -59,10 +65,10 @@ export default defineConfig({
       'react',
       'react-dom',
       'react-router-dom',
-      '@evoapi/design-system',
       'lucide-react',
       'sonner',
       'zustand',
+      '@evoapi/design-system',
     ],
     // Force optimization on start
     force: true,

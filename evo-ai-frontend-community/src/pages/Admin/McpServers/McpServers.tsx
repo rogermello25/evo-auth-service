@@ -1,18 +1,16 @@
 import { useState, useEffect } from 'react';
-import {
-  Button,
-  Table,
-  TableBody,
-  TableCell,
-  TableHead,
-  TableHeader,
-  TableRow,
-  DropdownMenu,
-  DropdownMenuContent,
-  DropdownMenuItem,
-  DropdownMenuTrigger,
-  Badge,
-} from '@evoapi/design-system';
+import { Button } from '@evoapi/design-system/button';
+import { Table } from '@evoapi/design-system/table';
+import { TableBody } from '@evoapi/design-system/table';
+import { TableCell } from '@evoapi/design-system/table';
+import { TableHead } from '@evoapi/design-system/table';
+import { TableHeader } from '@evoapi/design-system/table';
+import { TableRow } from '@evoapi/design-system/table';
+import { DropdownMenu } from '@evoapi/design-system/dropdown-menu';
+import { DropdownMenuContent } from '@evoapi/design-system/dropdown-menu';
+import { DropdownMenuItem } from '@evoapi/design-system/dropdown-menu';
+import { DropdownMenuTrigger } from '@evoapi/design-system/dropdown-menu';
+import { Badge } from '@evoapi/design-system/badge';;
 import {
   Server,
   Plus,

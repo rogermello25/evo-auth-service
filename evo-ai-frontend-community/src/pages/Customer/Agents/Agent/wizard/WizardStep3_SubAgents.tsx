@@ -1,4 +1,4 @@
-import { Button } from '@evoapi/design-system';
+import { Button } from '@evoapi/design-system/button';;
 import { ArrowRight, ArrowLeft } from 'lucide-react';
 import SubAgentsForm from '@/components/ai_agents/Forms/SubAgentsForm';
 import { SubAgentsData } from '@/components/ai_agents/Forms/SubAgentsForm';

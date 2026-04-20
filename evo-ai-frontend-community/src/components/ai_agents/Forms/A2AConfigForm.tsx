@@ -1,16 +1,14 @@
 import { useState, useEffect, useCallback } from 'react';
-import {
-  Label,
-  Input,
-  Card,
-  CardContent,
-  CardHeader,
-  CardTitle,
-  CardDescription,
-  Button,
-  Switch,
-  Badge,
-} from '@evoapi/design-system';
+import { Label } from '@evoapi/design-system/label';
+import { Input } from '@evoapi/design-system/input';
+import { Card } from '@evoapi/design-system/card';
+import { CardContent } from '@evoapi/design-system/card';
+import { CardHeader } from '@evoapi/design-system/card';
+import { CardTitle } from '@evoapi/design-system/card';
+import { CardDescription } from '@evoapi/design-system/card';
+import { Button } from '@evoapi/design-system/button';
+import { Switch } from '@evoapi/design-system/switch';
+import { Badge } from '@evoapi/design-system/badge';;
 import { ExternalLink, Settings, Share2, Plus, X, Globe } from 'lucide-react';
 import { useLanguage } from '@/hooks/useLanguage';
 

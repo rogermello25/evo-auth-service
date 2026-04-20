@@ -1,10 +1,8 @@
-import {
-  Dialog,
-  DialogContent,
-  DialogHeader,
-  DialogTitle,
-  ScrollArea,
-} from '@evoapi/design-system';
+import { Dialog } from '@evoapi/design-system/dialog';
+import { DialogContent } from '@evoapi/design-system/dialog';
+import { DialogHeader } from '@evoapi/design-system/dialog';
+import { DialogTitle } from '@evoapi/design-system/dialog';
+import { ScrollArea } from '@evoapi/design-system/scroll-area';;
 import { Team, TeamFormData } from '@/types/users';
 import TeamForm from './TeamForm';
 import { useLanguage } from '@/hooks/useLanguage';

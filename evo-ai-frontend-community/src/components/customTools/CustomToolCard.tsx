@@ -1,5 +1,8 @@
 import { useLanguage } from '@/hooks/useLanguage';
-import { Badge, Card, CardContent, Button } from '@evoapi/design-system';
+import { Badge } from '@evoapi/design-system/badge';
+import { Card } from '@evoapi/design-system/card';
+import { CardContent } from '@evoapi/design-system/card';
+import { Button } from '@evoapi/design-system/button';;
 import { Wand, Edit, Trash2, Globe, Loader2 } from 'lucide-react';
 import { CustomTool } from '@/types/ai';
 

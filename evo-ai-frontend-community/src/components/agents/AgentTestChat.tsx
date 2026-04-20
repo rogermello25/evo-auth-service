@@ -1,10 +1,8 @@
-import {
-  Dialog,
-  DialogContent,
-  DialogHeader,
-  DialogTitle,
-  DialogDescription,
-} from '@evoapi/design-system';
+import { Dialog } from '@evoapi/design-system/dialog';
+import { DialogContent } from '@evoapi/design-system/dialog';
+import { DialogHeader } from '@evoapi/design-system/dialog';
+import { DialogTitle } from '@evoapi/design-system/dialog';
+import { DialogDescription } from '@evoapi/design-system/dialog';;
 import { Agent } from '@/types/agents';
 import { AgentChatProvider } from '@/contexts/agents/AgentChatContext';
 import { AgentChatSessionList, AgentChatArea } from '@/pages/Customer/Agents/Agent/chat';

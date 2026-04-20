@@ -1,5 +1,10 @@
 import { useCallback } from 'react';
-import { Badge, Card, CardContent, CardHeader, Switch, Label } from '@evoapi/design-system';
+import { Badge } from '@evoapi/design-system/badge';
+import { Card } from '@evoapi/design-system/card';
+import { CardContent } from '@evoapi/design-system/card';
+import { CardHeader } from '@evoapi/design-system/card';
+import { Switch } from '@evoapi/design-system/switch';
+import { Label } from '@evoapi/design-system/label';;
 import { Settings, Brain, Zap } from 'lucide-react';
 import { useLanguage } from '@/hooks/useLanguage';
 

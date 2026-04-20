@@ -1,4 +1,9 @@
-import { Card, CardContent, CardHeader, CardTitle, CardDescription, Badge } from '@evoapi/design-system';
+import { Card } from '@evoapi/design-system/card';
+import { CardContent } from '@evoapi/design-system/card';
+import { CardHeader } from '@evoapi/design-system/card';
+import { CardTitle } from '@evoapi/design-system/card';
+import { CardDescription } from '@evoapi/design-system/card';
+import { Badge } from '@evoapi/design-system/badge';;
 import { PieChart, Pie, Cell, ResponsiveContainer, Legend, Tooltip } from 'recharts';
 import { LucideIcon } from 'lucide-react';
 import { TooltipInfo } from '@/components/base/TooltipInfo';

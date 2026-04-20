@@ -1,5 +1,5 @@
 import React from 'react';
-import { Button } from '@evoapi/design-system';
+import { Button } from '@evoapi/design-system/button';;
 import { ArrowLeft } from 'lucide-react';
 
 export interface BreadcrumbItem {

@@ -1,4 +1,5 @@
-import { Label, Textarea } from '@evoapi/design-system';
+import { Label } from '@evoapi/design-system/label';
+import { Textarea } from '@evoapi/design-system/textarea';;
 
 interface FormTextareaProps {
   id: string;

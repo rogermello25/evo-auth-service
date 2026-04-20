@@ -2,17 +2,15 @@ import React, { useState, useEffect, useCallback, useMemo } from 'react';
 import { useForm, Controller } from 'react-hook-form';
 import { z } from 'zod';
 import { zodResolver } from '@hookform/resolvers/zod';
-import {
-  Input,
-  Label,
-  Button,
-  Card,
-  CardContent,
-  CardHeader,
-  CardTitle,
-  Switch,
-  Textarea,
-} from '@evoapi/design-system';
+import { Input } from '@evoapi/design-system/input';
+import { Label } from '@evoapi/design-system/label';
+import { Button } from '@evoapi/design-system/button';
+import { Card } from '@evoapi/design-system/card';
+import { CardContent } from '@evoapi/design-system/card';
+import { CardHeader } from '@evoapi/design-system/card';
+import { CardTitle } from '@evoapi/design-system/card';
+import { Switch } from '@evoapi/design-system/switch';
+import { Textarea } from '@evoapi/design-system/textarea';;
 import { toast } from 'sonner';
 import { Loader2, Lock, LockOpen, X } from 'lucide-react';
 import { useLanguage } from '@/hooks/useLanguage';

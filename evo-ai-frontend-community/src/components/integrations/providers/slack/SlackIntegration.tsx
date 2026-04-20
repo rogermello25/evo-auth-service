@@ -1,6 +1,10 @@
 import { useState, useEffect } from 'react';
 import { useLanguage } from '@/hooks/useLanguage';
-import { Card, Button, Badge, Input, Switch } from '@evoapi/design-system';
+import { Card } from '@evoapi/design-system/card';
+import { Button } from '@evoapi/design-system/button';
+import { Badge } from '@evoapi/design-system/badge';
+import { Input } from '@evoapi/design-system/input';
+import { Switch } from '@evoapi/design-system/switch';;
 import { Users, Hash, Bell, Settings, AlertCircle } from 'lucide-react';
 import { IntegrationHeader, IntegrationStatus, IntegrationActions } from '../../base';
 import { Integration, SlackConfiguration } from '@/types/integrations';

@@ -1,19 +1,17 @@
 import { useState, useEffect } from 'react';
-import {
-  Card,
-  CardContent,
-  Button,
-  Select,
-  SelectContent,
-  SelectItem,
-  SelectTrigger,
-  SelectValue,
-  Skeleton,
-  Checkbox,
-  Label,
-  Badge,
-  Switch,
-} from '@evoapi/design-system';
+import { Card } from '@evoapi/design-system/card';
+import { CardContent } from '@evoapi/design-system/card';
+import { Button } from '@evoapi/design-system/button';
+import { Select } from '@evoapi/design-system/select';
+import { SelectContent } from '@evoapi/design-system/select';
+import { SelectItem } from '@evoapi/design-system/select';
+import { SelectTrigger } from '@evoapi/design-system/select';
+import { SelectValue } from '@evoapi/design-system/select';
+import { Skeleton } from '@evoapi/design-system/skeleton';
+import { Checkbox } from '@evoapi/design-system/checkbox';
+import { Label } from '@evoapi/design-system/label';
+import { Badge } from '@evoapi/design-system/badge';
+import { Switch } from '@evoapi/design-system/switch';;
 import {
   Bot,
   Trash2,

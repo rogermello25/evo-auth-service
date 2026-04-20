@@ -1,15 +1,13 @@
 import { useEffect, useMemo, useState, useCallback } from 'react';
-import {
-  Button,
-  Skeleton,
-  Dialog,
-  DialogContent,
-  DialogDescription,
-  DialogFooter,
-  DialogHeader,
-  DialogTitle,
-  Input,
-} from '@evoapi/design-system';
+import { Button } from '@evoapi/design-system/button';
+import { Skeleton } from '@evoapi/design-system/skeleton';
+import { Dialog } from '@evoapi/design-system/dialog';
+import { DialogContent } from '@evoapi/design-system/dialog';
+import { DialogDescription } from '@evoapi/design-system/dialog';
+import { DialogFooter } from '@evoapi/design-system/dialog';
+import { DialogHeader } from '@evoapi/design-system/dialog';
+import { DialogTitle } from '@evoapi/design-system/dialog';
+import { Input } from '@evoapi/design-system/input';;
 import { Trash2, Grid3X3, List, Layers } from 'lucide-react';
 import { toast } from 'sonner';
 import { useLanguage } from '@/hooks/useLanguage';

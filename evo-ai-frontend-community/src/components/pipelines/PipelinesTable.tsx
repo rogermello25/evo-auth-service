@@ -1,13 +1,11 @@
 import { useLanguage } from '@/hooks/useLanguage';
-import {
-  Table,
-  TableBody,
-  TableCell,
-  TableHead,
-  TableHeader,
-  TableRow,
-} from '@evoapi/design-system';
-import { Button } from '@evoapi/design-system';
+import { Table } from '@evoapi/design-system/table';
+import { TableBody } from '@evoapi/design-system/table';
+import { TableCell } from '@evoapi/design-system/table';
+import { TableHead } from '@evoapi/design-system/table';
+import { TableHeader } from '@evoapi/design-system/table';
+import { TableRow } from '@evoapi/design-system/table';;
+import { Button } from '@evoapi/design-system/button';;
 import {
   Eye,
   Edit,
@@ -20,13 +18,11 @@ import {
   ChevronDown,
 } from 'lucide-react';
 import { toast } from 'sonner';
-import {
-  DropdownMenu,
-  DropdownMenuContent,
-  DropdownMenuItem,
-  DropdownMenuSeparator,
-  DropdownMenuTrigger,
-} from '@evoapi/design-system';
+import { DropdownMenu } from '@evoapi/design-system/dropdown-menu';
+import { DropdownMenuContent } from '@evoapi/design-system/dropdown-menu';
+import { DropdownMenuItem } from '@evoapi/design-system/dropdown-menu';
+import { DropdownMenuSeparator } from '@evoapi/design-system/dropdown-menu';
+import { DropdownMenuTrigger } from '@evoapi/design-system/dropdown-menu';;
 import { Pipeline } from '@/types/analytics';
 import { cn } from '@/lib/utils';
 

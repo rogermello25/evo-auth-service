@@ -1,5 +1,8 @@
 import { useState } from 'react';
-import { Card, CardContent, Button, Badge } from '@evoapi/design-system';
+import { Card } from '@evoapi/design-system/card';
+import { CardContent } from '@evoapi/design-system/card';
+import { Button } from '@evoapi/design-system/button';
+import { Badge } from '@evoapi/design-system/badge';;
 import { ArrowRight, ArrowLeft, Bot, ListChecks, ArrowRight as ArrowRightIcon, GitBranch, RefreshCw, Plug } from 'lucide-react';
 import { useLanguage } from '@/hooks/useLanguage';
 

@@ -1,19 +1,17 @@
 import { ReactNode } from 'react';
 import { useLanguage } from '@/hooks/useLanguage';
-import {
-  Table,
-  TableBody,
-  TableCell,
-  TableHead,
-  TableHeader,
-  TableRow,
-  Checkbox,
-  Button,
-  DropdownMenu,
-  DropdownMenuContent,
-  DropdownMenuItem,
-  DropdownMenuTrigger,
-} from '@evoapi/design-system';
+import { Table } from '@evoapi/design-system/table';
+import { TableBody } from '@evoapi/design-system/table';
+import { TableCell } from '@evoapi/design-system/table';
+import { TableHead } from '@evoapi/design-system/table';
+import { TableHeader } from '@evoapi/design-system/table';
+import { TableRow } from '@evoapi/design-system/table';
+import { Checkbox } from '@evoapi/design-system/checkbox';
+import { Button } from '@evoapi/design-system/button';
+import { DropdownMenu } from '@evoapi/design-system/dropdown-menu';
+import { DropdownMenuContent } from '@evoapi/design-system/dropdown-menu';
+import { DropdownMenuItem } from '@evoapi/design-system/dropdown-menu';
+import { DropdownMenuTrigger } from '@evoapi/design-system/dropdown-menu';;
 import { MoreHorizontal, ArrowUpDown, ArrowUp, ArrowDown, LucideIcon } from 'lucide-react';
 import EmptyState from './EmptyState';
 

@@ -1,8 +1,6 @@
 import { useCallback, useState } from 'react';
-import {
-  Button,
-  Badge,
-} from '@evoapi/design-system';
+import { Button } from '@evoapi/design-system/button';
+import { Badge } from '@evoapi/design-system/badge';;
 import {
   Code,
   Plus,

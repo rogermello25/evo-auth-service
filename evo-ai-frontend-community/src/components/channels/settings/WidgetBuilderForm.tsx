@@ -1,19 +1,17 @@
 import { useState, useEffect, useCallback } from 'react';
-import {
-  Card,
-  CardContent,
-  Button,
-  Input,
-  Textarea,
-  Select,
-  SelectContent,
-  SelectItem,
-  SelectTrigger,
-  SelectValue,
-  RadioGroup,
-  RadioGroupItem,
-} from '@evoapi/design-system';
-import { Label } from '@evoapi/design-system';
+import { Card } from '@evoapi/design-system/card';
+import { CardContent } from '@evoapi/design-system/card';
+import { Button } from '@evoapi/design-system/button';
+import { Input } from '@evoapi/design-system/input';
+import { Textarea } from '@evoapi/design-system/textarea';
+import { Select } from '@evoapi/design-system/select';
+import { SelectContent } from '@evoapi/design-system/select';
+import { SelectItem } from '@evoapi/design-system/select';
+import { SelectTrigger } from '@evoapi/design-system/select';
+import { SelectValue } from '@evoapi/design-system/select';
+import { RadioGroup } from '@evoapi/design-system/radio-group';
+import { RadioGroupItem } from '@evoapi/design-system/radio-group';;
+import { Label } from '@evoapi/design-system/label';;
 import { Code2, Upload, Trash2, Eye, Settings } from 'lucide-react';
 import { toast } from 'sonner';
 import { useLanguage } from '@/hooks/useLanguage';

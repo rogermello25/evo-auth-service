@@ -1,6 +1,10 @@
 import React from 'react';
 import { useLanguage } from '@/hooks/useLanguage';
-import { Dialog, DialogContent, DialogHeader, DialogTitle, Badge } from '@evoapi/design-system';
+import { Dialog } from '@evoapi/design-system/dialog';
+import { DialogContent } from '@evoapi/design-system/dialog';
+import { DialogHeader } from '@evoapi/design-system/dialog';
+import { DialogTitle } from '@evoapi/design-system/dialog';
+import { Badge } from '@evoapi/design-system/badge';;
 import { Activity, Loader2, BarChart3, Calendar, TrendingUp, ChevronDown, ChevronUp } from 'lucide-react';
 import ContactEventsTimeline from './ContactEventsTimeline';
 import { useContactEvents } from '@/hooks/useContactEvents';

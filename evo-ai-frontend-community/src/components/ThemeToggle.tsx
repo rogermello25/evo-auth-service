@@ -1,6 +1,9 @@
 import { useLanguage } from '@/hooks/useLanguage';
 import { Sun, Moon } from 'lucide-react';
-import { Button, Tooltip, TooltipContent, TooltipTrigger } from '@evoapi/design-system';
+import { Button } from '@evoapi/design-system/button';
+import { Tooltip } from '@evoapi/design-system/tooltip';
+import { TooltipContent } from '@evoapi/design-system/tooltip';
+import { TooltipTrigger } from '@evoapi/design-system/tooltip';;
 import { useDarkMode } from '../hooks/useDarkMode';
 
 export function ThemeToggle() {

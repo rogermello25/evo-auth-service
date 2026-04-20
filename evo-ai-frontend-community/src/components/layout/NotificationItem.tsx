@@ -1,5 +1,7 @@
 import { useLanguage } from '@/hooks/useLanguage';
-import { Avatar, AvatarFallback, Button } from '@evoapi/design-system';
+import { Avatar } from '@evoapi/design-system/avatar';
+import { AvatarFallback } from '@evoapi/design-system/avatar';
+import { Button } from '@evoapi/design-system/button';;
 import { formatDistanceToNow } from 'date-fns';
 import { ptBR } from 'date-fns/locale';
 import { Notification } from '@/services/notifications/NotificationsService';

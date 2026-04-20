@@ -1,4 +1,8 @@
-import { Card, CardContent, CardHeader, CardTitle, CardDescription } from '@evoapi/design-system';
+import { Card } from '@evoapi/design-system/card';
+import { CardContent } from '@evoapi/design-system/card';
+import { CardHeader } from '@evoapi/design-system/card';
+import { CardTitle } from '@evoapi/design-system/card';
+import { CardDescription } from '@evoapi/design-system/card';;
 import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer, Cell } from 'recharts';
 import { LucideIcon } from 'lucide-react';
 import { TooltipInfo } from '@/components/base/TooltipInfo';

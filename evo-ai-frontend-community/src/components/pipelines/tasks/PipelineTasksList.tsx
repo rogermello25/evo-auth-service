@@ -1,7 +1,12 @@
 import { useState, useEffect, forwardRef, useImperativeHandle } from 'react';
 import { useLanguage } from '@/hooks/useLanguage';
 import { usePipelineTasks } from '@/hooks/usePipelineTasks';
-import { Button, Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@evoapi/design-system';
+import { Button } from '@evoapi/design-system/button';
+import { Select } from '@evoapi/design-system/select';
+import { SelectContent } from '@evoapi/design-system/select';
+import { SelectItem } from '@evoapi/design-system/select';
+import { SelectTrigger } from '@evoapi/design-system/select';
+import { SelectValue } from '@evoapi/design-system/select';;
 import { Plus, Loader2 } from 'lucide-react';
 import HierarchicalTaskItem from './HierarchicalTaskItem';
 import type { PipelineTask } from '@/types/analytics';
