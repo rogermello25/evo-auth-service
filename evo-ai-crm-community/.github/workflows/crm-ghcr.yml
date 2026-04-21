@@ -1,4 +1,4 @@
-name: Build & Publish Core Service
+name: Build & Publish CRM Service
 
 on:
   workflow_dispatch:
@@ -6,8 +6,8 @@ on:
     branches: [main]
     paths:
       - '**'
-      - '.github/workflows/core-ghcr.yml'
-      - 'Dockerfile'
+      - '.github/workflows/crm-ghcr.yml'
+      - 'docker/Dockerfile'
 
 permissions:
   contents: read
@@ -15,7 +15,7 @@ permissions:
 
 env:
   REGISTRY: ghcr.io/rogermello25/evocrm
-  IMAGE_NAME: evo-core-fixed
+  IMAGE_NAME: evo-crm-fixed
 
 jobs:
   build:
@@ -39,7 +39,7 @@ jobs:
         uses: docker/build-push-action@v6
         with:
           context: .
-          file: ./Dockerfile
+          file: ./docker/Dockerfile
           platforms: linux/amd64
           push: true
           provenance: false

@@ -21,6 +21,8 @@ import { useLanguage } from '../../../hooks/useLanguage';
 import NotificationBell from '../NotificationBell';
 import ProfileMenu from './ProfileMenu';
 import { TourFab } from '@/components/TourFab';
+import { ThemeToggle } from '../../ThemeToggle';
+import logoRoih from '../../../../public/logo-roih.png';
 import MenuItem from './MenuItem';
 import { MenuItem as MenuItemType } from '../config/menuItems';
 
@@ -266,7 +268,9 @@ export default function Header({
         <div className="flex-1" />
 
         {/* Right side */}
-        <div className="flex items-center gap-2 px-4">
+        <div className="flex items-center gap-3 px-4">
+          <img src={logoRoih} alt="ROIH" className="h-8 w-auto" />
+          <ThemeToggle />
           <TourFab />
           {/* Notifications */}
           <NotificationBell />
