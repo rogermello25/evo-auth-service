@@ -16,3 +16,6 @@
 [submodule "evo-ai-frontend-community"]
 	path = evo-ai-frontend-community
 	url = https://github.com/rogermello25/evo-ai-frontend-community.git
+[submodule "evo-ai-core-service-community"]
+	path = evo-ai-core-service-community
+	url = https://github.com/rogermello25/evo-core-service.git
