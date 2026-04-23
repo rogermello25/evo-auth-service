@@ -118,7 +118,7 @@ done
 
 if [ "$needs_init" = true ]; then
   info "Initializing submodules (this may take a few minutes)..."
-  git submodule update --init --recursive
+  git submodule update --init --recursive -- --recurse-submodules
   success "Submodules initialized"
 else
   success "Submodules already initialized"
@@ -146,6 +146,15 @@ if [ -f .env ]; then
 else
   cp .env.example .env
   success "Created .env from .env.example"
+fi
+
+# Validate env before proceeding
+if [ -f ./scripts/validate-env.sh ]; then
+  info "Validating environment..."
+  if ! ./scripts/validate-env.sh; then
+    fail "Environment validation failed. Please fix your .env file."
+  fi
+  success "Environment is valid"
 fi
 
 echo ""
@@ -240,8 +249,8 @@ echo "  Mailhog:      ${CYAN}http://localhost:8025${RESET}  (email testing)"
 echo ""
 echo "  ${BOLD}Default Login:${RESET}"
 echo "  ─────────────────────────────────────────────"
-echo "  Email:       ${GREEN}support@evo-auth-service-community.com${RESET}"
-echo "  Password:    ${GREEN}Password@123${RESET}"
+echo "  Email:       ${GREEN}${ADMIN_EMAIL:-admin@evocrm.local}${RESET}"
+echo "  Password:    ${GREEN}${ADMIN_PASSWORD:-check CRM seed logs}${RESET}"
 echo ""
 echo "  ${BOLD}Useful Commands:${RESET}"
 echo "  ─────────────────────────────────────────────"

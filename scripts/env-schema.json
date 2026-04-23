@@ -1,0 +1,198 @@
+{
+  "required": [
+    "POSTGRES_HOST",
+    "POSTGRES_PORT",
+    "POSTGRES_USERNAME",
+    "POSTGRES_PASSWORD",
+    "POSTGRES_DATABASE",
+    "REDIS_PASSWORD",
+    "SECRET_KEY_BASE",
+    "JWT_SECRET_KEY",
+    "DOORKEEPER_JWT_SECRET_KEY",
+    "ENCRYPTION_KEY",
+    "EVOAI_CRM_API_TOKEN",
+    "BOT_RUNTIME_SECRET",
+    "RAILS_ENV",
+    "FRONTEND_URL",
+    "ADMIN_EMAIL",
+    "ADMIN_PASSWORD",
+    "RAILS_LOG_TO_STDOUT",
+    "DB_HOST",
+    "DB_PORT",
+    "DB_USER",
+    "DB_PASSWORD",
+    "DB_NAME",
+    "DB_SSLMODE",
+    "EVOLUTION_BASE_URL",
+    "EVO_AUTH_BASE_URL",
+    "AI_PROCESSOR_URL",
+    "POSTGRES_CONNECTION_STRING",
+    "REDIS_HOST",
+    "REDIS_PORT",
+    "HOST",
+    "PORT",
+    "LISTEN_ADDR",
+    "VITE_APP_ENV",
+    "VITE_API_URL",
+    "VITE_AUTH_API_URL",
+    "VITE_EVOAI_API_URL",
+    "VITE_AGENT_PROCESSOR_URL"
+  ],
+  "placeholder_patterns": [
+    "CHANGE_ME",
+    "change-me",
+    "TODO",
+    "your_*",
+    "generate_with_rails_secret_command"
+  ],
+  "vars": {
+    "POSTGRES_HOST": {
+      "services": ["evo-auth", "evo-crm", "evo-core", "evo-processor", "evolution-api"],
+      "description": "PostgreSQL hostname (use 'postgres' in Docker)"
+    },
+    "POSTGRES_PORT": {
+      "services": ["evo-auth", "evo-crm", "evo-core", "evo-processor", "evolution-api"],
+      "description": "PostgreSQL port (default: 5432)"
+    },
+    "POSTGRES_USERNAME": {
+      "services": ["evo-auth", "evo-crm", "evo-core", "evo-processor", "evolution-api"],
+      "description": "PostgreSQL username"
+    },
+    "POSTGRES_PASSWORD": {
+      "services": ["evo-auth", "evo-crm", "evo-core", "evo-processor", "evolution-api"],
+      "description": "PostgreSQL password"
+    },
+    "POSTGRES_DATABASE": {
+      "services": ["evo-auth", "evo-crm", "evo-core", "evo-processor", "evolution-api"],
+      "description": "PostgreSQL database name"
+    },
+    "REDIS_PASSWORD": {
+      "services": ["redis", "evo-auth", "evo-crm", "evo-bot-runtime", "evo-processor"],
+      "description": "Redis password for authentication"
+    },
+    "SECRET_KEY_BASE": {
+      "services": ["evo-auth", "evo-crm"],
+      "description": "Rails secret key for signed cookies and session tokens. Must be identical across auth and CRM services."
+    },
+    "JWT_SECRET_KEY": {
+      "services": ["evo-core"],
+      "description": "JWT signing secret for core service token validation. Must match SECRET_KEY_BASE."
+    },
+    "DOORKEEPER_JWT_SECRET_KEY": {
+      "services": ["evo-auth"],
+      "description": "OAuth2 JWT signing secret for Doorkeeper. Must match SECRET_KEY_BASE."
+    },
+    "ENCRYPTION_KEY": {
+      "services": ["evo-auth", "evo-core", "evo-processor"],
+      "description": "Fernet base64-encoded 256-bit key for encrypting stored API credentials. Must be identical across services."
+    },
+    "EVOAI_CRM_API_TOKEN": {
+      "services": ["evo-auth", "evo-crm", "evo-processor"],
+      "description": "Service-to-service authentication token for internal API calls between EvoAI services."
+    },
+    "BOT_RUNTIME_SECRET": {
+      "services": ["evo-crm", "evo-bot-runtime"],
+      "description": "Shared secret for CRM to authenticate with bot-runtime service."
+    },
+    "RAILS_ENV": {
+      "services": ["evo-auth", "evo-crm"],
+      "description": "Rails environment (development, production, staging)"
+    },
+    "FRONTEND_URL": {
+      "services": ["evo-auth"],
+      "description": "Public URL of the frontend application"
+    },
+    "ADMIN_EMAIL": {
+      "services": ["evo-crm"],
+      "description": "Initial admin account email address"
+    },
+    "ADMIN_PASSWORD": {
+      "services": ["evo-crm"],
+      "description": "Initial admin account password"
+    },
+    "RAILS_LOG_TO_STDOUT": {
+      "services": ["evo-crm"],
+      "description": "Enable structured JSON logging to stdout (set to 'true' in Docker)"
+    },
+    "DB_HOST": {
+      "services": ["evo-core"],
+      "description": "Core service database host (use 'postgres' in Docker)"
+    },
+    "DB_PORT": {
+      "services": ["evo-core"],
+      "description": "Core service database port"
+    },
+    "DB_USER": {
+      "services": ["evo-core"],
+      "description": "Core service database user"
+    },
+    "DB_PASSWORD": {
+      "services": ["evo-core"],
+      "description": "Core service database password"
+    },
+    "DB_NAME": {
+      "services": ["evo-core"],
+      "description": "Core service database name"
+    },
+    "DB_SSLMODE": {
+      "services": ["evo-core"],
+      "description": "PostgreSQL SSL mode (disable, require, verify-ca, verify-full)"
+    },
+    "EVOLUTION_BASE_URL": {
+      "services": ["evo-core"],
+      "description": "CRM service URL for Evolution API integration"
+    },
+    "EVO_AUTH_BASE_URL": {
+      "services": ["evo-core"],
+      "description": "Auth service URL for core service authentication"
+    },
+    "AI_PROCESSOR_URL": {
+      "services": ["evo-core", "evo-bot-runtime"],
+      "description": "Agent processor service URL for AI task offloading"
+    },
+    "POSTGRES_CONNECTION_STRING": {
+      "services": ["evo-processor"],
+      "description": "Full PostgreSQL connection string for processor service (postgresql://user:pass@host:port/db)"
+    },
+    "REDIS_HOST": {
+      "services": ["evo-processor"],
+      "description": "Redis hostname for processor service"
+    },
+    "REDIS_PORT": {
+      "services": ["evo-processor"],
+      "description": "Redis port for processor service"
+    },
+    "HOST": {
+      "services": ["evo-processor"],
+      "description": "HTTP server bind host for processor service"
+    },
+    "PORT": {
+      "services": ["evo-processor", "evo-core"],
+      "description": "HTTP server port for processor and core services"
+    },
+    "LISTEN_ADDR": {
+      "services": ["evo-bot-runtime"],
+      "description": "HTTP server bind address for bot runtime service (use '0.0.0.0:8080' in Docker)"
+    },
+    "VITE_APP_ENV": {
+      "services": ["evo-frontend"],
+      "description": "Frontend build environment (development, production)"
+    },
+    "VITE_API_URL": {
+      "services": ["evo-frontend"],
+      "description": "CRM API URL accessed by browser (localhost in dev, container name in Docker)"
+    },
+    "VITE_AUTH_API_URL": {
+      "services": ["evo-frontend"],
+      "description": "Auth service API URL accessed by browser"
+    },
+    "VITE_EVOAI_API_URL": {
+      "services": ["evo-frontend"],
+      "description": "Core service API URL accessed by browser"
+    },
+    "VITE_AGENT_PROCESSOR_URL": {
+      "services": ["evo-frontend"],
+      "description": "Agent processor URL accessed by browser"
+    }
+  }
+}

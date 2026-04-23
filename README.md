@@ -137,4 +137,12 @@ Want to support the project? Visit [evolutionfoundation.com.br/contribute](https
 
 Apache 2.0 — see [LICENSE](./LICENSE) for details.
 
-Made with love by [Evolution Foundation](https://evolutionfoundation.com.br).
+## Vendored Dependencies
+
+The following directories are **vendored copies** of upstream third-party repositories — they are **not** git submodules and should not be treated as such:
+
+- `evo-bot-runtime`
+- `evolution-api`
+- `evolution-go`
+
+These are kept in sync manually. **Do not run `git submodule update` on them.** Running `git submodule update` on these directories may cause unexpected behavior or data loss, as they are static snapshots of their upstream sources.
