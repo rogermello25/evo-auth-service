@@ -4,3 +4,12 @@
 [submodule "evo-ai-processor-community"]
 	path = evo-ai-processor-community
 	url = https://github.com/rogermello25/evo-processor-service.git
+[submodule "evo-ai-knowledge-service"]
+	path = evo-ai-knowledge-service
+	url = https://github.com/rogermello25/evo-knowledge-service.git
+[submodule "evo-ai-crm-community"]
+	path = evo-ai-crm-community
+	url = https://github.com/rogermello25/evo-crm-service.git
+[submodule "nginx"]
+	path = nginx
+	url = https://github.com/rogermello25/evo-gateway-service.git
