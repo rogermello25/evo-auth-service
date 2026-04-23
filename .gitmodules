@@ -13,3 +13,6 @@
 [submodule "nginx"]
 	path = nginx
 	url = https://github.com/rogermello25/evo-gateway-service.git
+[submodule "evo-ai-frontend-community"]
+	path = evo-ai-frontend-community
+	url = https://github.com/rogermello25/evo-ai-frontend-community.git
