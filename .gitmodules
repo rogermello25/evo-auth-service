@@ -1,3 +1,6 @@
 [submodule "evo-auth-service-community"]
 	path = evo-auth-service-community
 	url = https://github.com/rogermello25/evo-auth-service.git
+[submodule "evo-ai-processor-community"]
+	path = evo-ai-processor-community
+	url = https://github.com/rogermello25/evo-processor-service.git
