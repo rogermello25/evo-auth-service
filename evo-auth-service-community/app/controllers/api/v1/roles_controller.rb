@@ -4,7 +4,15 @@ class Api::V1::RolesController < Api::V1::BaseController
   include RoleHelper
 
   before_action :check_authorization
-  
+
+  def index
+    roles = Role.all.map { |role| RoleSerializer.basic(role) }
+    success_response(
+      data: roles,
+      message: 'Roles retrieved successfully'
+    )
+  end
+
   # Get available roles for account users (agent and administrator)
   # This is a global endpoint as roles are not account-specific
   def account_user_roles
@@ -21,6 +29,7 @@ class Api::V1::RolesController < Api::V1::BaseController
   def check_authorization
     # Verificar se usuário tem permissão para gerenciar roles
     action_map = {
+      'index'              => 'roles.read',
       'account_user_roles' => 'roles.read'
     }
     

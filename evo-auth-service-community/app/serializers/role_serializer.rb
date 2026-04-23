@@ -22,7 +22,10 @@ module RoleSerializer
     {
       id: role.id,
       name: role.name,
-      description: role.description
+      description: role.description,
+      key: role.key,
+      system: role.system,
+      type: role.type
     }
   end
 end
