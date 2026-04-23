@@ -1,0 +1,3 @@
+[submodule "evo-auth-service-community"]
+	path = evo-auth-service-community
+	url = https://github.com/rogermello25/evo-auth-service.git
